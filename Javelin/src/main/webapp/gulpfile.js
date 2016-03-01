@@ -57,7 +57,7 @@ var JS_LIB = [
     'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
     'bower_components/angular-smart-table/dist/smart-table.js',
     'bower_components/angular-cache-buster/angular-cache-buster.js',
-    '/bower_components/ng-password-strength/dist/scripts/ng-password-strength.js',
+    'bower_components/ng-password-strength/dist/scripts/ng-password-strength.js',
     'bower_components/ng-file-upload/ng-file-upload.js',
     'bower_components/ngQuickDate/dist/ng-quick-date.js',
     'bower_components/angular-ui-select/dist/select.js',
