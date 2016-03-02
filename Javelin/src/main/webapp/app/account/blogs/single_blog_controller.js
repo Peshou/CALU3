@@ -1,8 +1,8 @@
 /**
  * Created by Intel on 02.03.2016.
  */
-AngularApp.controller('BlogController', [
+AngularApp.controller('SingleBlogController', [
     '$scope','Blog','$state', function ($scope,Blog,$state) {
-        $scope.blogs = Blog.query();
+        $scope.blog = Blog.get();
         console.log($state.$stateParams);
     }]);

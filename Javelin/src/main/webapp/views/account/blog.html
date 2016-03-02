@@ -1,10 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div ng-repeat="blog in blogs">
-                <button class="btn btn-warning" ui-sref="blogs.blog_post({blogId: blog.id})">Click me lolz</button>
-                <h3>{{blog.name}}</h3>
-                <hr/>
+            <h1></h1>
+            <div ng-repeat="post in blogPosts">
+                {{post.name}}
             </div>
         </div>
     </div>

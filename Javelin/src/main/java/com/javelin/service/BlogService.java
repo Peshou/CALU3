@@ -9,5 +9,8 @@ public interface BlogService {
 
 	List<Blog> findAll();
 
+	void delete(Long id);
+
+	Blog save(Blog blog);
 
 }

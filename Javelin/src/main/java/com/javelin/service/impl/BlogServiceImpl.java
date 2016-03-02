@@ -28,4 +28,15 @@ public class BlogServiceImpl implements BlogService {
 		return blogRepository.findAll();
 	}
 
+	@Override
+	public void delete(Long id) {
+		blogRepository.delete(id);
+	}
+
+	@Override
+	public Blog save(Blog blog) {
+		return blogRepository.save(blog);
+	}
+
+
 }
