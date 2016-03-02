@@ -1,5 +1,7 @@
 package com.javelin.domain;
 
+import java.util.Date;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -9,45 +11,97 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table
 public class BlogPost {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	public Long getId() {
+		return id;
+	}
 
-    @NotNull
-    @Column(nullable = false)
-    private String name;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public BlogPost(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public BlogPost() {
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Override
-    public String toString() {
-        return "BlogPost{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
+	public Blog getBlog_id() {
+		return blog_id;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public void setBlog_id(Blog blog_id) {
+		this.blog_id = blog_id;
+	}
 
-        BlogPost blogPost = (BlogPost) o;
+	public Date getTimeAdded() {
+		return timeAdded;
+	}
 
-        if (id != null ? !id.equals(blogPost.id) : blogPost.id != null) return false;
-        return name != null ? name.equals(blogPost.name) : blogPost.name == null;
+	public void setTimeAdded(Date timeAdded) {
+		this.timeAdded = timeAdded;
+	}
 
-    }
+	public String getText() {
+		return text;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@NotNull
+	@Column(nullable = false)
+	private String name;
+
+	@ManyToOne()
+	@JoinColumn(name = "blog_id", referencedColumnName = "id")
+	private Blog blog_id;
+
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date timeAdded;
+
+	@NotNull
+	@Column(nullable = false)
+	private String text;
+
+	public BlogPost(Long id, String name, Blog blog) {
+		super();
+		this.id = id;
+		this.name = name;
+
+	}
+
+	@Override
+	public String toString() {
+		return "BlogPost{" + "id=" + id + ", name='" + name + '\'' + '}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		BlogPost blogPost = (BlogPost) o;
+
+		if (id != null ? !id.equals(blogPost.id) : blogPost.id != null)
+			return false;
+		return name != null ? name.equals(blogPost.name) : blogPost.name == null;
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id != null ? id.hashCode() : 0;
+		result = 31 * result + (name != null ? name.hashCode() : 0);
+		return result;
+	}
 }

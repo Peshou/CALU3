@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,151 +19,158 @@ import java.util.Set;
 @Entity
 @Table
 public class User implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @NotNull
-    @Pattern(regexp = "^[a-z0-9]*$|(anonymousUser)")
-    @Size(min = 1, max = 50)
-    @Column(length = 50, unique = true, nullable = false)
-    private String username;
+	private static final long serialVersionUID = 1L;
 
-    @JsonIgnore
-    @NotNull
-    @Size(min = 60, max = 60)
-    @Column(name = "password_hash", length = 60)
-    private String password;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Size(max = 50)
-    @Column(name = "first_name", length = 50)
-    private String firstName;
+	@NotNull
+	@Pattern(regexp = "^[a-z0-9]*$|(anonymousUser)")
+	@Size(min = 1, max = 50)
+	@Column(length = 50, unique = true, nullable = false)
+	private String username;
 
-    @Size(max = 50)
-    @Column(name = "last_name", length = 50)
-    private String lastName;
+	@JsonIgnore
+	@NotNull
+	@Size(min = 60, max = 60)
+	@Column(name = "password_hash", length = 60)
+	private String password;
 
-    @Email
-    @Size(max = 100)
-    @Column(length = 100, unique = true)
-    private String email;
+	@Size(max = 50)
+	@Column(name = "first_name", length = 50)
+	private String firstName;
 
-    private String userDescription;
+	@Size(max = 50)
+	@Column(name = "last_name", length = 50)
+	private String lastName;
 
-    @Lob
-    @Column(name = "user_image", columnDefinition = "mediumblob")
-    private byte[] userImage;
+	@Email
+	@Size(max = 100)
+	@Column(length = 100, unique = true)
+	private String email;
 
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "user_authority",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
-    private Set<Authority> authorities = new HashSet<>();
+	private String userDescription;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "  username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", userDescription='" + userDescription + '\'' +
-                ", userImage=" + Arrays.toString(userImage) +
-                ", authorities=" + authorities +
-                '}';
-    }
+	@Lob
+	@Column(name = "user_image", columnDefinition = "mediumblob")
+	private byte[] userImage;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || o.getClass() != getClass()) return false;
+	@Column(nullable = false, columnDefinition = "TINYINT(1)")
+	private boolean active = true;
 
-        User user = (User) o;
+	@JsonIgnore
+	@OneToMany(mappedBy = "user_id")
+	private List<Blog> blogs;
 
-        if (!username.equals(user.username)) return false;
-        if (!id.equals(user.id)) return false;
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(name = "user_authority", joinColumns = {
+			@JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = {
+					@JoinColumn(name = "authority_name", referencedColumnName = "name") })
+	private Set<Authority> authorities = new HashSet<>();
 
-        return true;
-    }
+	@Override
+	public String toString() {
+		return "User{" + "  username='" + username + '\'' + ", password='" + password + '\'' + ", firstName='"
+				+ firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email + '\''
+				+ ", userDescription='" + userDescription + '\'' + ", userImage=" + Arrays.toString(userImage)
+				+ ", authorities=" + authorities + '}';
+	}
 
-    @Override
-    public int hashCode() {
-        return username.hashCode();
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || o.getClass() != getClass())
+			return false;
 
-    public Long getId() {
-        return id;
-    }
+		User user = (User) o;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+		if (!username.equals(user.username))
+			return false;
+		if (!id.equals(user.id))
+			return false;
 
-    public String getUsername() {
-        return username;
-    }
+		return true;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	@Override
+	public int hashCode() {
+		return username.hashCode();
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getFirstName() {
-        return firstName;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public Set<Authority> getAuthorities() {
-        return authorities;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public void setAuthorities(Set<Authority> authorities) {
-        this.authorities = authorities;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public String getUserDescription() {
-        return userDescription;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setUserDescription(String userDescription) {
-        this.userDescription = userDescription;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public byte[] getUserImage() {
-        return userImage;
-    }
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
 
-    public void setUserImage(byte[] userImage) {
-        this.userImage = userImage;
-    }
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	public String getUserDescription() {
+		return userDescription;
+	}
+
+	public void setUserDescription(String userDescription) {
+		this.userDescription = userDescription;
+	}
+
+	public byte[] getUserImage() {
+		return userImage;
+	}
+
+	public void setUserImage(byte[] userImage) {
+		this.userImage = userImage;
+	}
 
 }
