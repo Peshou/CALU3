@@ -42,11 +42,11 @@ AngularApp.run([
                 title = toState.data.pageTitle;
             }
             $window.document.title = title;
-           // console.log(toState);sdadsa
-            dsadsdss
+            // console.log(toState);sdadsa
         });
         $rootScope.back = function () {
-            if ($state.get($rootScope.previousStateName) === null) {$state.go('home');
+            if ($state.get($rootScope.previousStateName) === null) {
+                $state.go('home');
             } else {
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
@@ -57,7 +57,7 @@ AngularApp.config([
     '$urlRouterProvider',
     '$httpProvider',
     '$locationProvider',
- //   '$compileProvider',
+    //   '$compileProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('site', {
@@ -79,5 +79,5 @@ AngularApp.config([
         $httpProvider.interceptors.push('errorHandlerInterceptor');
         $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('authInterceptor');
-       // $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|ftp|blob):|data:image\//);
+        // $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|ftp|blob):|data:image\//);
     }]);
