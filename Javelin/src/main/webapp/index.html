@@ -16,7 +16,7 @@
 
     <!-- Concatenated CSS -->
     <link href="dest/lib.css?rev=c20617d3548416941b6fbcfe08bc0088" rel="stylesheet">
-    <link href="dest/app.css?rev=3c1b6870a5cbc8e0145a1fe4e1224664" rel="stylesheet">
+    <link href="dest/app.css?rev=9af63fa91e51b308060d9bf3cf4108a8" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,11 +27,7 @@
 </head>
 
 <body ng-app="angularDemoApp">
-<div ui-view="navbar" ng-cloak="" id="uiViewNavbar"></div>
-
-<!--
-<div ng-hide="currHome">
-</div>-->
+<div ui-view="navbar" ng-cloak="" ng-hide="$state.current.name === 'home'"></div>
 <div ui-view="content"></div>
 
 
@@ -49,8 +45,8 @@
 <!-- Concatenated libraries -->
 <script src="dest/lib.js?rev=17b45516402255e55f68b81afabbac9c"></script>
 <!-- Concatenated application -->
-<script src="dest/src.js?rev=263bb9ddfafcca465bede7af53ae320a"></script>
+<script src="dest/src.js?rev=1fd8c1a27ffeb43bb53762494f707dfe"></script>
 <!-- All html templates -->
-<script src="dest/templates.js?rev=8447d5982bf718f03beadccab7141246"></script>
+<script src="dest/templates.js?rev=c0a218a5b7642b3fbd9a4fd809f44965"></script>
 </body>
 </html>

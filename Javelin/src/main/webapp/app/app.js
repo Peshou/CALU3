@@ -42,10 +42,11 @@ AngularApp.run([
                 title = toState.data.pageTitle;
             }
             $window.document.title = title;
+           // console.log(toState);sdadsa
+            dsadsdss
         });
         $rootScope.back = function () {
-            if ($state.get($rootScope.previousStateName) === null) {
-                $state.go('home');
+            if ($state.get($rootScope.previousStateName) === null) {$state.go('home');
             } else {
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }

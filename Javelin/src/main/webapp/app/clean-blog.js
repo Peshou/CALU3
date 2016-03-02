@@ -1,10 +1,4 @@
-/*!
- * Clean Blog v1.0.0 (http://startbootstrap.com)
- * Copyright 2014 Start Bootstrap
- * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
- */
-
-// Contact Form Scripts
+/*
 
 $(function() {
 
@@ -72,7 +66,7 @@ $(function() {
 });
 
 
-/*When clicking on Full hide fail/success boxes */
+/!*When clicking on Full hide fail/success boxes *!/
 $('#name').focus(function() {
     $('#success').html('');
 });
@@ -955,13 +949,13 @@ $('#name').focus(function() {
 		return new RegExp("^" + inputstring + "$");
 	}
 
-  /**
+  /!**
    * Thanks to Jason Bunting via StackOverflow.com
    *
    * http://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string#answer-359910
    * Short link: http://tinyurl.com/executeFunctionByName
-  **/
-  function executeFunctionByName(functionName, context /*, args*/) {
+  **!/
+  function executeFunctionByName(functionName, context /!*, args*!/) {
     var args = Array.prototype.slice.call(arguments).splice(2);
     var namespaces = functionName.split(".");
     var func = namespaces.pop();
@@ -1030,3 +1024,4 @@ jQuery(document).ready(function($) {
             });
     }
 });
+*/
