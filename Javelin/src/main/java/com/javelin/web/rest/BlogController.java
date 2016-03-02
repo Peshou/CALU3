@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.net.URI;
 
 import com.javelin.domain.Blog;
@@ -46,17 +47,16 @@ public class BlogController {
         return ResponseEntity.ok().build();
     }
 
-    @RequestMapping(value = "/blogs/{id}",method = RequestMethod.PUT)
-    public ResponseEntity<?> updatePostById(@PathVariable Long id, @Valid Blog blog){
+    @RequestMapping(value = "/blogs/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<?> updatePostById(@PathVariable Long id, @Valid Blog blog) {
         blogService.save(blog);
         return ResponseEntity.ok().build();
     }
-    @RequestMapping(value ="/blogs", method = RequestMethod.POST)
-    public ResponseEntity<?> saveNewBlog(@RequestParam @Valid Blog blog){
+
+    @RequestMapping(value = "/blogs", method = RequestMethod.POST)
+    public ResponseEntity<?> saveNewBlog(@RequestParam @Valid Blog blog) {
         blog = blogService.save(blog);
-     // return ResponseEntity.created()
-        return null;
-        //TODO: FIX
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 /*
