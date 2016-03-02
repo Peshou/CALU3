@@ -23,7 +23,7 @@ import org.springframework.security.data.repository.query.SecurityEvaluationCont
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class  SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private TokenProvider tokenProvider;
 

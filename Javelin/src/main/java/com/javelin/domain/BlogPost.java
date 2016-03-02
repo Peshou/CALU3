@@ -1,5 +1,9 @@
 package com.javelin.domain;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+
 import java.util.Date;
 
 import javax.persistence.*;
@@ -9,8 +13,42 @@ import javax.validation.constraints.NotNull;
  * Created by Intel on 01.03.2016.
  */
 @Entity
+@Indexed
 @Table
 public class BlogPost {
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@NotNull
+	@Field(store = Store.NO)
+	@Column(nullable = false)
+	private String name;
+
+	@ManyToOne()
+	@JoinColumn(name = "blog_id", referencedColumnName = "id")
+	private Blog blog_id;
+
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date timeAdded;
+
+	@NotNull
+	@Field(store = Store.NO)
+	@Column(nullable = false)
+	private String text;
+
+	public BlogPost() {
+	}
+
+	public BlogPost(Long id, String name, Blog blog) {
+		super();
+		this.id = id;
+		this.name = name;
+
+	}
 	public Long getId() {
 		return id;
 	}
@@ -49,33 +87,6 @@ public class BlogPost {
 
 	public void setText(String text) {
 		this.text = text;
-	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	@NotNull
-	@Column(nullable = false)
-	private String name;
-
-	@ManyToOne()
-	@JoinColumn(name = "blog_id", referencedColumnName = "id")
-	private Blog blog_id;
-
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date timeAdded;
-
-	@NotNull
-	@Column(nullable = false)
-	private String text;
-
-	public BlogPost(Long id, String name, Blog blog) {
-		super();
-		this.id = id;
-		this.name = name;
-
 	}
 
 	@Override

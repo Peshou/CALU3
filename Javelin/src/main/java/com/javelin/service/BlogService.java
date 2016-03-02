@@ -8,5 +8,6 @@ public interface BlogService {
 	Blog findOne(Long id);
 
 	List<Blog> findAll();
-	
+
+
 }

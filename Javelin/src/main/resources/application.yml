@@ -5,6 +5,12 @@ spring:
     password: admin
     url: jdbc:mysql://localhost:3306/javelin?useUnicode=true&characterEncoding=UTF-8
   jpa:
+    properties:
+      hibernate:
+        search:
+          default:
+            directory_provider: filesystem
+            indexBase: /var/javelin/lucene/indexes/
     show-sql: true
     database: mysql
     hibernate:
