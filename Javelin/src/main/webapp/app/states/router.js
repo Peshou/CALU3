@@ -168,8 +168,8 @@ AngularApp
                         controller: 'SingleBlogController'
                     }
                 }
-            })
-            .state('blogs.blog.post', {
+            });
+      /*      .state('blogs.blog.post', {
                 parent: 'blog',
                 url: '/{blogPostId}',
                 data: {
@@ -183,7 +183,7 @@ AngularApp
                 },
                 resolve: {}
 
-            });
+            });*/
     }]);
 
 
