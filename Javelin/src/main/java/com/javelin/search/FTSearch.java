@@ -22,7 +22,7 @@ public class FTSearch {
     public List<Blog> search(String text){
         FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(entityManager);
         QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory()
-                .buildQueryBuilder().forEntity(Blog.class).get().;
+                .buildQueryBuilder().forEntity(Blog.class).get();
         Query query =
                 queryBuilder
                 .keyword()
