@@ -18,6 +18,7 @@ import com.javelin.service.BlogService;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.persistence.PersistenceContext;
+import javax.print.attribute.standard.Media;
 import javax.validation.Valid;
 import javax.xml.ws.Response;
 
@@ -31,9 +32,14 @@ public class BlogController {
     @Autowired
     BlogPostService blogPostService;
 
-    @RequestMapping(value = "/blogs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Blog> getAllBlogPosts() {
+    @RequestMapping(value = "/blogs/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Blog> getAllBlogs() {
         return blogService.findAll();
+    }
+
+    @RequestMapping(value = "/blogs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Blog> getAllBlogsFromUserLoggedIn() {
+        return blogService.findByUserUsername();
     }
 
     @RequestMapping(value = "/blogs/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -42,13 +48,13 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/blogs/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deletePostById(@PathVariable Long id) {
+    public ResponseEntity<?> deleteBlogById(@PathVariable Long id) {
         blogService.delete(id);
         return ResponseEntity.ok().build();
     }
 
     @RequestMapping(value = "/blogs/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<?> updatePostById(@PathVariable Long id, @Valid Blog blog) {
+    public ResponseEntity<?> deleteBlogById(@PathVariable Long id, @Valid Blog blog) {
         blogService.save(blog);
         return ResponseEntity.ok().build();
     }

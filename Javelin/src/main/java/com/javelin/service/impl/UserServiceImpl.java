@@ -61,6 +61,7 @@ public class UserServiceImpl implements UserService {
         newUser.setUserImage(imag);
         authorities.add(authority);
         newUser.setAuthorities(authorities);
+        newUser.setActive(true);
         userRepository.save(newUser);
         return newUser;
     }
@@ -76,13 +77,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUserInformation(String firstName, String lastName, String email, String description) {
+    public void updateUserInformation(String firstName, String lastName, String email, String description, boolean active) {
         User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
         if (user != null) {
             user.setFirstName(firstName);
             user.setLastName(lastName);
             user.setEmail(email);
             user.setUserDescription(description);
+            user.setActive(active);
             //    user.setUserImage(image);
             userRepository.save(user);
         }

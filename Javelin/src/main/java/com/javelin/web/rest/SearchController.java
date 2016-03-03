@@ -6,6 +6,7 @@ import com.javelin.search.FTSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -20,18 +21,15 @@ public class SearchController {
     @Autowired
     private FTSearch ftSearch;
 
-    @RequestMapping(value = "/search",produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<?> search(String query) {
+    @RequestMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<?> search(@RequestParam String query) {
         List searchResults = new ArrayList<>();
         try {
             searchResults.addAll(ftSearch.search(Blog.class, query, "name", "description"));
             searchResults.addAll(ftSearch.search(BlogPost.class, query, "name", "text"));
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
 
         }
         return searchResults;
     }
-
-
 }

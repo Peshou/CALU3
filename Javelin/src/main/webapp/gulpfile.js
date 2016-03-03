@@ -100,20 +100,13 @@ var INDEX_FILE = 'index.html';
  * The name of the angular module
  */
 var MODULE_NAME = 'angularDemoApp';
-/**
- * The URL of the back-end API
- */
-var API_URL = 'http://localhost:8080/api';
+
 var opt = {
     app: '',
     port: 8000,
     apiPort: 8080,
     liveReloadPort: 35729
 }
-/**
- * Route to which the API calls will be mapped
- */
-var API_ROUTE = '/api';
 
 /**
  * Task for concatenation of the js libraries used
@@ -191,8 +184,6 @@ gulp.task('build', tasks, function () {
     gulp.start('cache-break');
 });
 
-
-
 var endsWith = function (str, suffix) {
     return str.indexOf('/', str.length - suffix.length) !== -1;
 };
@@ -252,44 +243,12 @@ gulp.task('serve', function() {
     gulp.start('watch');
 });
 
-/*gulp.task('watch', function () {
-    gulp.watch('app/!**!/!**.js', ['concat_js_app', 'cache-break']);
-    gulp.watch('views/!**!/!**.html', ['templates', 'cache-break']);
-    gulp.watch('css/!**!/!**.css', ['concat_css_app', 'cache-break']);
-    gulp.watch(['views/!**!/!**.html','app/!**!/!**.js','css/!**!/!**.css','i18n/!**','images/!**','fonts/!**','index.html']).on('change', browserSync.reload);
-});*/
 gulp.task('watch', function () {
     gulp.watch('app/**/**.js', ['concat_js_app', 'cache-break']);
     gulp.watch('views/**/**.html', ['templates', 'cache-break']);
     gulp.watch('css/**/**.css', ['concat_css_app', 'cache-break']);
     gulp.watch(['views/*','app/*','css/*','i18n/**','images/*','fonts/*','index.html']).on('change', browserSync.reload);
 });
-
-/*
-gulp.task('serve', function () {
-    connect.server({
-        port: 8000,
-        livereload: true,
-        middleware: function (connect, opt) {
-            return [
-                (function () {
-                    var url = require('url');
-                    var proxy = require('proxy-middleware');
-                    var options = url.parse(API_URL);
-                    options.route = API_ROUTE;
-                    console.log(options);
-                    return proxy(options);
-                })()
-            ];
-        }
-    });
-});
-
-
-gulp.task('default', ['serve', 'watch']);
-*/
-
-
 
 gulp.task('default', function() {
     runSequence('serve');

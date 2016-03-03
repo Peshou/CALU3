@@ -38,19 +38,19 @@ public class Blog {
 	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
-	private User user_id;
+	private User user;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "blog_id")
+	@OneToMany(mappedBy = "blog")
 	private List<BlogPost> blogPosts;
 
 	public Blog() {
 	}
 
-	public Blog(String name, String description, User user_id, List<BlogPost> blogPosts) {
+	public Blog(String name, String description, User user, List<BlogPost> blogPosts) {
 		this.name = name;
 		this.description = description;
-		this.user_id = user_id;
+		this.user = user;
 		this.blogPosts = blogPosts;
 	}
 
@@ -65,7 +65,7 @@ public class Blog {
 		if (!getName().equals(blog.getName())) return false;
 		if (getDescription() != null ? !getDescription().equals(blog.getDescription()) : blog.getDescription() != null)
 			return false;
-		return getUser_id().equals(blog.getUser_id());
+		return getUser().equals(blog.getUser());
 
 	}
 
@@ -74,7 +74,7 @@ public class Blog {
 		int result = getId().hashCode();
 		result = 31 * result + getName().hashCode();
 		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
-		result = 31 * result + getUser_id().hashCode();
+		result = 31 * result + getUser().hashCode();
 		return result;
 	}
 
@@ -102,12 +102,12 @@ public class Blog {
 		this.description = description;
 	}
 
-	public User getUser_id() {
-		return user_id;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser_id(User user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public List<BlogPost> getBlogPosts() {

@@ -1,24 +1,34 @@
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
 <div class="home">
-<header class="intro-header" style="background-image: url('images/page-heading.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="page-heading">
-                    <!--<h1>Clean Blog</h1>-->
-                    <!--<hr class="small">-->
-                    <h2 class="h1-heading">Welcome to Blog15</h2><br/><br/><br/>
-                    <div><button class ="btn btn-primary btn-sign-in" ui-sref="login">Sign in</button></div>
-                    <span class="subtitle">or</span>
-                    <div><button class="btn btn-primary" ui-sref="register">Sign up</button></div>
+    <div>
+        <header class="intro-header" style="background-image: url('images/page-heading.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="page-heading">
+                            <!--<h1>Clean Blog</h1>-->
+                            <!--<hr class="small">-->
+                            <h2 class="h1-heading">Welcome to Blog15</h2><br/><br/><br/>
+                            <div ng-hide="isAuthenticated()">
+                                <div>
+                                    <button class="btn btn-primary btn-sign-in" ui-sref="login">Sign in</button>
+                                </div>
+                                <span class="subtitle">or</span>
+                                <div>
+                                    <button class="btn btn-primary" ui-sref="register">Sign up</button>
+                                </div>
+                            </div>
+                            <div ng-show="isAuthenticated()">
+                                <button class="btn btn-primary btn-sign-in" ui-sref="blogs">Start Blogging</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
     </div>
-</header>
-
-<!-- Main Content -->
+    <!-- Main Content
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -37,7 +47,8 @@
                 <div class="post-preview">
                     <a href="post.html">
                         <h2 class="post-title">
-                            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+                            I believe every human has a finite number of heartbeats. I don't intend to waste any of
+                            mine.
                         </h2>
                     </a>
                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
@@ -61,13 +72,14 @@
                             Failure is not an option
                         </h2>
                         <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
+                            Many say exploration is part of our destiny, but it’s actually our duty to future
+                            generations.
                         </h3>
                     </a>
                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
                 </div>
                 <hr>
-                <!-- Pager -->
+                <!-- Pager
                 <ul class="pager">
                     <li class="next">
                         <a href="#">Older Posts &rarr;</a>
@@ -75,6 +87,7 @@
                 </ul>
             </div>
         </div>
+    </div>
+-->
+    <hr>
 </div>
-
-<hr>

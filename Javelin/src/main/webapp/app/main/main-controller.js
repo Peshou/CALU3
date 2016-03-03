@@ -4,4 +4,5 @@ AngularApp
             $scope.account = account;
             $scope.isAuthenticated = Principal.isAuthenticated;
         });
+
     }]);

@@ -13,4 +13,5 @@ public interface BlogService {
 
 	Blog save(Blog blog);
 
+	List<Blog> findByUserUsername();
 }

@@ -29,11 +29,14 @@ public class BlogPost {
 
 	@ManyToOne()
 	@JoinColumn(name = "blog_id", referencedColumnName = "id")
-	private Blog blog_id;
+	private Blog blog;
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeAdded;
+
+	@Column(nullable = false, columnDefinition = "TINYINT(1)")
+	private boolean public_post = true;
 
 	@NotNull
 	@Field(store = Store.NO)
@@ -43,12 +46,14 @@ public class BlogPost {
 	public BlogPost() {
 	}
 
-	public BlogPost(Long id, String name, Blog blog) {
-		super();
-		this.id = id;
+	public BlogPost(String name, Blog blog, Date timeAdded, boolean public_post, String text) {
 		this.name = name;
-
+		this.blog = blog;
+		this.timeAdded = timeAdded;
+		this.public_post = public_post;
+		this.text = text;
 	}
+
 	public Long getId() {
 		return id;
 	}
@@ -65,12 +70,12 @@ public class BlogPost {
 		this.name = name;
 	}
 
-	public Blog getBlog_id() {
-		return blog_id;
+	public Blog getBlog() {
+		return blog;
 	}
 
-	public void setBlog_id(Blog blog_id) {
-		this.blog_id = blog_id;
+	public void setBlog(Blog blog_id) {
+		this.blog = blog_id;
 	}
 
 	public Date getTimeAdded() {
@@ -89,9 +94,24 @@ public class BlogPost {
 		this.text = text;
 	}
 
+	public boolean isPublic_post() {
+		return public_post;
+	}
+
+	public void setPublic_post(boolean public_post) {
+		this.public_post = public_post;
+	}
+
 	@Override
 	public String toString() {
-		return "BlogPost{" + "id=" + id + ", name='" + name + '\'' + '}';
+		return "BlogPost{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", blog=" + blog +
+				", timeAdded=" + timeAdded +
+				", public_post=" + public_post +
+				", text='" + text + '\'' +
+				'}';
 	}
 
 	@Override
@@ -115,4 +135,6 @@ public class BlogPost {
 		result = 31 * result + (name != null ? name.hashCode() : 0);
 		return result;
 	}
+
+
 }

@@ -40,6 +40,8 @@ public class UserDTO {
     private String userDescription;
 
     private byte[] userImage;
+    private boolean active;
+
 
     private Set<String> authorities;
 
@@ -54,6 +56,7 @@ public class UserDTO {
         this.authorities = getAuthorityString(user.getAuthorities());
         this.userDescription=user.getUserDescription();
         this.userImage = user.getUserImage();
+        this.active = user.isActive();
       // this(user.getUsername(),null, user.getFirstName(), user.getLastName(),user.getEmail(),getAuthorityString(user.getAuthorities()));
     }
     private Set<String> getAuthorityString(Set<Authority> userAuthorities){
@@ -64,7 +67,8 @@ public class UserDTO {
         return authorities;
     }
 
-    public UserDTO(String username, String password, String firstName, String lastName, String email, Set<String> authorities, String userDescription, byte[] userImage) {
+
+    public UserDTO(String username, String password, String firstName, String lastName, String email, Set<String> authorities, String userDescription, byte[] userImage, boolean active) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -73,6 +77,7 @@ public class UserDTO {
         this.authorities = authorities;
         this.userDescription=userDescription;
         this.userImage = userImage;
+        this.active = active;
     }
 
     public String getUsername() {
@@ -102,7 +107,9 @@ public class UserDTO {
     public byte[] getUserImage() {
         return userImage;
     }
-
+    public boolean isActive() {
+        return active;
+    }
     public String getUserDescription() {
         return userDescription;
     }

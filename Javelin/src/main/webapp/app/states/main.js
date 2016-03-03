@@ -1,6 +1,4 @@
-/**
- * Created by Stefan on 2/27/2016.
- */
+/*
 AngularApp
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider
@@ -18,4 +16,4 @@ AngularApp
                 },
                 resolve: {}
             });
-    }]);
+    }]);*/

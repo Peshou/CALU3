@@ -1,3 +1,4 @@
+/*
 AngularApp
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider
@@ -17,3 +18,4 @@ AngularApp
                 resolve: {}
         });
     }]);
+*/

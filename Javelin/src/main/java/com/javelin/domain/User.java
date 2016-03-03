@@ -61,7 +61,7 @@ public class User implements Serializable {
 	private boolean active = true;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "user_id")
+	@OneToMany(mappedBy = "user")
 	private List<Blog> blogs;
 
 	@JsonIgnore
@@ -71,12 +71,33 @@ public class User implements Serializable {
 					@JoinColumn(name = "authority_name", referencedColumnName = "name") })
 	private Set<Authority> authorities = new HashSet<>();
 
+
+	public User() {
+	}
+
+	public User(String username, String password, String firstName, String lastName, String email, boolean active) {
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.active = active;
+	}
+
 	@Override
 	public String toString() {
 		return "User{" + "  username='" + username + '\'' + ", password='" + password + '\'' + ", firstName='"
 				+ firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email + '\''
 				+ ", userDescription='" + userDescription + '\'' + ", userImage=" + Arrays.toString(userImage)
 				+ ", authorities=" + authorities + '}';
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	@Override

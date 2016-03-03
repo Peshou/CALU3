@@ -76,7 +76,7 @@ public class AccountController {
 
         User user = userService.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
         try {
-            userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(), userDTO.getUserDescription());
+            userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(), userDTO.getUserDescription(),userDTO.isActive());
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -1,6 +1,4 @@
-/**
- * Created by Stefan on 2/29/2016.
- */
+/*
 AngularApp
     .config(['$stateProvider',function ($stateProvider) {
         $stateProvider
@@ -9,3 +7,4 @@ AngularApp
                 parent: 'site'
             });
     }]);
+*/

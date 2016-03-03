@@ -1,3 +1,4 @@
+/*
 AngularApp
     .config(['$stateProvider',
         function ($stateProvider) {
@@ -20,3 +21,4 @@ AngularApp
                 }
             });
     }]);
+*/

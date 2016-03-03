@@ -2,17 +2,17 @@
 AngularApp
     .config(['$stateProvider',function ($stateProvider) {
         $stateProvider
-            .state('register', {
-                parent: 'account',
-                url: '/register',
+            .state('search', {
+                parent: 'site',
+                url: '/search',
                 data: {
                     authorities: [],
-                    pageTitle: 'Registration'
+                    pageTitle: 'Search Blogs'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'views/account/register.html',
-                        controller: 'RegisterController'
+                        templateUrl: 'views/search.html',
+                        controller: 'SearchController'
                     }
                 },
                 resolve: {

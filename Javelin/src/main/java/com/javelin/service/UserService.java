@@ -19,7 +19,7 @@ public interface UserService {
 
     User getUserWithAuthorities();
 
-    void updateUserInformation(String firstName, String lastName, String email, String description);
+    void updateUserInformation(String firstName, String lastName, String email, String description,boolean active);
 
     void updateUserImage(byte[] image);
 
