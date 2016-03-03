@@ -8,9 +8,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 @Entity
 @Table
 public class Authority implements Serializable {

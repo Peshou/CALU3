@@ -1,6 +1,6 @@
 {
-  "name": "angularDemoApp",
-  "title": "angularDemoApp",
+  "name": "angularBlogApp",
+  "title": "angularBlogApp",
   "version": "1.0.0",
   "devDependencies": {
     "bower": "1.7.0",

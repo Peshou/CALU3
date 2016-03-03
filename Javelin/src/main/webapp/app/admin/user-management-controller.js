@@ -1,6 +1,3 @@
-/**
- * Created by Stefan on 2/29/2016.
- */
 AngularApp.controller('UserManagementController', ['$scope', 'User', 'Principal', 'toastr', function ($scope, User, Principal, toastr) {
     Principal.identity().then(function (account) {
         $scope.currentAccount = account;

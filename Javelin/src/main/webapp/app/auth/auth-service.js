@@ -1,6 +1,3 @@
-/**
- * Created by Stefan on 2/27/2016.
- */
 AngularApp.factory('Auth', [
     '$rootScope',
     '$state',

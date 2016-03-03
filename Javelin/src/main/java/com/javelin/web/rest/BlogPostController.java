@@ -15,9 +15,6 @@ import javax.validation.Valid;
 import javax.xml.ws.Response;
 import java.util.List;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 @RestController
 @RequestMapping("/api/blogs")
 public class BlogPostController {

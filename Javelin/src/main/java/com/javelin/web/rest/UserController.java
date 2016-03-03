@@ -19,9 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by Stefan on 2/27/2016.
- */
 @RestController
 @RequestMapping("/api")
 public class UserController {

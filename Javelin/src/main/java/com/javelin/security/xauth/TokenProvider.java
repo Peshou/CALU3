@@ -6,9 +6,6 @@ import org.springframework.security.crypto.codec.Hex;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 public class TokenProvider {
     private final String secretKey;
     private final int tokenValidity;

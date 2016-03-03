@@ -20,9 +20,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 @Service
 @Transactional
 public class BlogPostServiceImpl implements BlogPostService {

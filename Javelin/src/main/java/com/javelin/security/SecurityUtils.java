@@ -10,9 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 public final class SecurityUtils {
 
     public SecurityUtils() {

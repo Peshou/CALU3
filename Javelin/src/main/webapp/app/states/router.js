@@ -69,6 +69,7 @@ AngularApp
             .state('search', {
                 parent: 'site',
                 url: '/search',
+                params:{searchInput: null},
                 data: {
                     authorities: [],
                     pageTitle: 'Search Blogs'

@@ -6,9 +6,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 public class XAuthTokenConfigurer  extends SecurityConfigurerAdapter<DefaultSecurityFilterChain,HttpSecurity> {
     private TokenProvider tokenProvider;
     private UserDetailsService userDetailsService;

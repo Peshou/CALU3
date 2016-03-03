@@ -21,9 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 
-/**
- * Created by Stefan on 2/26/2016.
- */
 @RestController
 @RequestMapping("/api")
 public class AccountController {

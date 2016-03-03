@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Created by Stefan on 2/26/2016.
- */
 @RestController
 @RequestMapping("/api")
 public class UserXAuthTokenController {

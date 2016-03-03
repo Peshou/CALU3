@@ -1,7 +1,7 @@
 /**
  * Created by Stefan on 2/26/2016.
  */
-var AngularApp = angular.module('angularDemoApp',
+var AngularApp = angular.module('angularBlogApp',
     [
         'LocalStorageModule',
         'ngResource',

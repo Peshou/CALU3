@@ -1,8 +1,5 @@
 package com.javelin.security.xauth;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 public class Token {
     private String token;
     private long expires;

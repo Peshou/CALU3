@@ -11,9 +11,6 @@ import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- * Created by Stefan on 3/2/2016.
- */
 @Component
 public class BuildSearchIndex
         implements ApplicationListener<ContextRefreshedEvent> {
@@ -54,4 +51,4 @@ public class BuildSearchIndex
     }
 
 
-} // class BuildSearchIndex
+}

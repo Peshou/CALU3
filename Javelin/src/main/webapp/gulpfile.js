@@ -1,6 +1,6 @@
 /**
  *
- * Developed as a part of a project founded by Sorsix
+ * ALL CREDITS FOR THIS GULP FILE GO TO:
  *
  * @Authors
  *  Tomce Delev
@@ -99,7 +99,7 @@ var INDEX_FILE = 'index.html';
 /**
  * The name of the angular module
  */
-var MODULE_NAME = 'angularDemoApp';
+var MODULE_NAME = 'angularBlogApp';
 
 var opt = {
     app: '',

@@ -14,9 +14,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 public class XAuthTokenFilter extends GenericFilterBean {
 
     private final static String XAUTH_TOKEN_HEADER_NAME = "x-auth-token";

@@ -1,8 +1,5 @@
 package com.javelin.security;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 public final class AuthoritiesConstants {
 
     public static final String ADMIN = "ROLE_ADMIN";

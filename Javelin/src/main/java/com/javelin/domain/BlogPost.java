@@ -1,5 +1,6 @@
 package com.javelin.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
@@ -9,9 +10,6 @@ import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 @Entity
 @Indexed
 @Table
@@ -27,6 +25,7 @@ public class BlogPost {
 	@Column(nullable = false)
 	private String name;
 
+	@JsonIgnore
 	@ManyToOne()
 	@JoinColumn(name = "blog_id", referencedColumnName = "id")
 	private Blog blog;

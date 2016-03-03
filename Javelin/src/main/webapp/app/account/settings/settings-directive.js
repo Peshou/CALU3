@@ -1,6 +1,3 @@
-/**
- * Created by Stefan on 2/28/2016.
- */
 AngularApp
     .directive('fileModel', ['$parse', function ($parse) {
         return {

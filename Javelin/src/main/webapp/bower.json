@@ -1,5 +1,5 @@
 {
-  "name": "angularDemoApp",
+  "name": "angularBlogApp",
   "ignore": [
     "**/.*",
     "node_modules",

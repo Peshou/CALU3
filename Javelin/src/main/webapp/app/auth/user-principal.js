@@ -1,6 +1,3 @@
-/**
- * Created by Stefan on 2/27/2016.
- */
 AngularApp.factory('Principal', ['$q', 'Account', function ($q, Account) {
     var _identity = undefined,
         _authenticated = false;

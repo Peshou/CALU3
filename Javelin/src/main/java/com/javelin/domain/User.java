@@ -13,9 +13,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 @Entity
 @Table
 public class User implements Serializable {
@@ -61,7 +58,7 @@ public class User implements Serializable {
 	private boolean active = true;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user",orphanRemoval = true, cascade = CascadeType.ALL)
 	private List<Blog> blogs;
 
 	@JsonIgnore

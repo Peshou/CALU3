@@ -6,10 +6,6 @@ import com.javelin.web.dto.PasswordDTO;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by Stefan on 2/26/2016.
- */
-
 public interface UserService {
     User findOneByUsername(String username);
 

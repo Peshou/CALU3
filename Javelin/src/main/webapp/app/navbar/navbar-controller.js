@@ -12,4 +12,10 @@ AngularApp.controller('NavbarController',
                 Auth.logout();
                 $state.go('home');
             };
+            $scope.search = function (text) {
+                if(text.trim().length > 0){
+                    $state.go("search",({searchInput: $scope.searchText}));
+                }
+                console.log(text);
+            }
         }]);

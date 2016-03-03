@@ -13,28 +13,24 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-/**
- * Created by Stefan on 3/2/2016.
- */
 @Repository
 @Transactional
 public class FTSearch {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public <T> List<?> search(T classForSearch, String text, String... fields){
+    public List<Blog> search(String text){
         FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(entityManager);
         QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory()
-                .buildQueryBuilder().forEntity(classForSearch.getClass()).get();
-
+                .buildQueryBuilder().forEntity(Blog.class).get().;
         Query query =
                 queryBuilder
                 .keyword()
-                .onFields(fields)
+                .onFields( "name", "description")
                 .matching(text)
                 .createQuery();
 
-        FullTextQuery jpaQuery = fullTextEntityManager.createFullTextQuery(query,classForSearch.getClass());
+        FullTextQuery jpaQuery = fullTextEntityManager.createFullTextQuery(query,Blog.class);
 
         List results = jpaQuery.getResultList();
         return results;

@@ -21,9 +21,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by Stefan on 2/26/2016.
- */
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {

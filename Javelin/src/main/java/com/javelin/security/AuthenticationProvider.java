@@ -7,9 +7,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 public class AuthenticationProvider implements org.springframework.security.authentication.AuthenticationProvider {
 
     private PasswordEncoder passwordEncoder;

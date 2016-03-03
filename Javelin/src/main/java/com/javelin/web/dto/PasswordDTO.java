@@ -1,8 +1,5 @@
 package com.javelin.web.dto;
 
-/**
- * Created by Stefan on 2/29/2016.
- */
 public class PasswordDTO {
     private String oldPassword;
     private String newPassword;

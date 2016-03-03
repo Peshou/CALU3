@@ -3,9 +3,6 @@ package com.javelin.web.dto;
 
 import com.javelin.domain.User;
 
-/**
- * Created by Stefan on 2/27/2016.
- */
 public class ManagedUserDTO extends UserDTO {
     private Long id;
 

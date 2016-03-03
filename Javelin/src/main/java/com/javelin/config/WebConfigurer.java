@@ -6,9 +6,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-/**
- * Created by Intel on 01.03.2016.
- */
 @Configuration
 public class WebConfigurer {
     @Bean
