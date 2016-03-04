@@ -15,8 +15,9 @@
                     <div class="form-group">
                         <input type="text" class="form-control" ng-model="searchText" required placeholder="Search"/>
                     </div>
-                    <button class="btn btn-default" ng-click="search(searchText)">Submit</button>
+                    <button class="btn btn-default" ng-click="search(searchText)">Search!</button>
                 </form>
+                <li ui-sref-active="active"><a ui-sref="allBlogs">All Blogs</a></li>
                 <li ui-sref-active="active"><a ui-sref="blogs">My Blogs</a></li>
                 <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" id="account-menu">

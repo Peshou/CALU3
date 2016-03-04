@@ -1,4 +1,4 @@
-package com.javelin.config;
+package com.javelin;
 
 import com.javelin.security.Http401UnauthorizedEntryPoint;
 import com.javelin.security.xauth.TokenProvider;
@@ -55,6 +55,7 @@ public class  SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/register").permitAll()
                 .antMatchers("/api/authenticate").permitAll()
+                .antMatchers("/api/blogs/**").permitAll()
                 .antMatchers("/api/**").authenticated()
                 .and()
                 .apply(securityConfigurerAdapter());

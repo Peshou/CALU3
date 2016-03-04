@@ -14,7 +14,7 @@
 
     <!-- Concatenated CSS -->
     <link href="dest/lib.css?rev=c20617d3548416941b6fbcfe08bc0088" rel="stylesheet">
-    <link href="dest/app.css?rev=3958cbef23bf7f29a935247965bd1abf" rel="stylesheet">
+    <link href="dest/app.css?rev=f4abea19966a902500732cc851614b13" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -25,13 +25,13 @@
 
 <body ng-app="angularBlogApp" ng-cloak="">
 <div ui-view="navbar" ng-hide="$state.current.name === 'home'"></div>
-<div ui-view="content" style=" margin-top: -20px;"></div>
+<div ui-view="content" style=" margin-top: -20px;" id="contentUiView"></div>
 
 <hr/>
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div class="footer">
+            <footer class="footer" id="footer">
 
                 <div>
                     <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-square"></i></a>
@@ -44,7 +44,7 @@
                 </p>
 
                 <div>{{$state.current.name}}</div>
-            </div>
+            </footer>
         </div>
     </div>
 </div>
@@ -52,8 +52,8 @@
 <!-- Concatenated libraries -->
 <script src="dest/lib.js?rev=17b45516402255e55f68b81afabbac9c"></script>
 <!-- Concatenated application -->
-<script src="dest/src.js?rev=b874d95a7a3278af31069a5d38e2861c"></script>
+<script src="dest/src.js?rev=ab0697270df8ae58e918f53e8dadae86"></script>
 <!-- All html templates -->
-<script src="dest/templates.js?rev=d6f40b20e0d03921c48863e72352a961"></script>
+<script src="dest/templates.js?rev=e197c3305381a406f0547a3b0f3b67ff"></script>
 </body>
 </html>

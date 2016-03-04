@@ -11,7 +11,7 @@ spring:
           default:
             directory_provider: filesystem
             indexBase: /var/javelin/lucene/indexes/
-    #show-sql: true
+    show-sql: true
     database: mysql
     hibernate:
       ddl-auto: update

@@ -21,9 +21,7 @@ public interface UserService {
 
     boolean changePassword(PasswordTransferObject passwordTransferObject);
 
-
     List<User> findAll();
-
 
     void deleteUserInformation(String username);
 }

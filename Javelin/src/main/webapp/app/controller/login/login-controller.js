@@ -1,10 +1,9 @@
-AngularApp
-    .controller('LoginController',[
-        '$rootScope',
-        '$scope',
-        '$state',
-        'Auth',
-        function ($rootScope, $scope, $state, Auth) {
+AngularApp.controller('LoginController', [
+    '$rootScope',
+    '$scope',
+    '$state',
+    'Auth',
+    function ($rootScope, $scope, $state, Auth) {
         $scope.user = {};
         $scope.errors = {};
 
@@ -14,14 +13,14 @@ AngularApp
                 username: $scope.username,
                 password: $scope.password,
                 rememberMe: $scope.rememberMe
-            }).then(function (){
+            }).then(function () {
                 $scope.authenticationError = false;
                 if ($rootScope.previousStateName === 'register') {
                     $state.go('home');
                 } else {
                     $rootScope.back();
                 }
-            }).catch(function (err){
+            }).catch(function (err) {
                 $scope.authenticationError = true;
                 angular.element('[ng-model="username"]').focus();
             });

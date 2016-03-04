@@ -41,8 +41,10 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Blog save(Blog blog) {
-        User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
-        blog.setUser(user);
+        if (blog.getUser() == null) {
+            User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
+            blog.setUser(user);
+        }
         return blogRepository.save(blog);
     }
 

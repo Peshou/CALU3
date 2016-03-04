@@ -61,6 +61,10 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user",orphanRemoval = true, cascade = CascadeType.ALL)
 	private List<Blog> blogs;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "userId")
+	private List<Comment> commentsGame;
+
 
 	@ManyToMany
 	@JoinTable(name = "user_authority", joinColumns = {

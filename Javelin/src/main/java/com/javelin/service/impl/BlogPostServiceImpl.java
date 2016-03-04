@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -37,40 +38,24 @@ public class BlogPostServiceImpl implements BlogPostService {
     @Override
     public List<BlogPost> findAll() {
         List<BlogPost> allPosts = blogPostRepository.findAll();
+        Collections.sort(allPosts);
         return allPosts;
     }
 
     @Override
     public List<BlogPost> findByBlogId(Long id) {
-        Blog blog = blogRepository.findOne(id);
         List<BlogPost> posts = blogPostRepository.findByBlogId(id);
-        List<BlogPost> finalPosts = new ArrayList<>();
-        User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
-        if (user != null) {
-            if (user.equals(blog.getUser())) {
-                return posts;
-            }
+        if (posts != null && posts.size() > 0) {
+            Collections.sort(posts);
         }
-        return null;
+        return posts;
     }
 
     @Override
     public BlogPost find(Long id, Long postId) {
-        Blog blog = blogRepository.findOne(id);
-        for (BlogPost blogPost : blog.getBlogPosts()) {
-            if (Long.compare(blogPost.getId(), postId) == 0) {
-                User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
-                if (user != null) {
-                    if (user.equals(blog.getUser())) {
-                        return blogPost;
-//TODO: SMENI SVE SO BLOGPOSTOVITE BLA BLA
-                    }
-                }
-                else {
-                }
-            }
-        }
-        return null;
+        BlogPost blogPost = blogPostRepository.findOne(postId);
+        blogPost.getComments().size();
+        return blogPost;
     }
 
     @Override

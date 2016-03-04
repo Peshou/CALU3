@@ -28,6 +28,7 @@ public class Blog  implements Serializable {
 	private String name;
 
 	@Field(store = Store.NO)
+	@Column(length = 4000)
 	private String description;
 
 	@JsonIgnore

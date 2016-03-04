@@ -23,8 +23,6 @@ AngularApp.controller('NavbarController',
 
             $scope.visible = function () {
                 if($state.current != 'home'){
-                var liAdmin = document.getElementById("liAdmin");
-                console.log(liAdmin);
                 $('#liAdmin').removeClass('hidden');
                 Principal.hasAuthority("ROLE_ADMIN")
                     .then(function (result) {
@@ -40,7 +38,6 @@ AngularApp.controller('NavbarController',
             $scope.$watch(function () {
                 return Principal.isAuthenticated();
             }, function (newValue) {
-                console.log(newValue);
                 $scope.visible();
             });
         }]);

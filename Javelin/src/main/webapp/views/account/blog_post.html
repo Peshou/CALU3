@@ -1,20 +1,28 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <div ng-show="postMaker">
-                    <h2>{{post.id}}</h2>
-                <form name="form" role="form">
-                    <input type="text" class="form-control" ng-model="editPost.name" />
-                    <input type="text"class="form-control" ng-model="editPost.text" />
-                    <h5>{{post.timeAdded | date: 'yyyy-MM-dd HH:mm'}}</h5>
-                    <button type="submit" class="btn btn-success" ng-click="savePost()">Save Post</button>
-                </form>
+            <div class="pull-right" ng-show="postMaker">
+                <button class="btn btn-danger" ng-click="editPostMode()">Edit Blog Post</button>
             </div>
-            <div ng-hide="postMaker">
-                <h2>{{post.id}}</h2>
-                <h2>{{post.name}}</h2>
-                <h2>{{post.text}}</h2>
-                <h2>{{post.timeAdded}}</h2>
+            <div ng-show="editMode">
+                <form name="form" role="form">
+                    <input type="text" class="form-control" ng-model="editPost.name"/>
+                    <input type="text" class="form-control" ng-model="editPost.text"/>
+                    <h5>{{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</h5>
+                    <button type="submit" class="btn btn-success" ng-click="savePost()">Save Post</button>
+                    <button type="submit" class="btn btn-warning" ng-click="cancelEditPostMode()">Cancel</button>
+                </form>
+                <div ng-repeat="comment in post.comments">
+                    <h5>{{comment.commentId}}</h5>
+                    <h5>{{comment.commentText}}</h5>
+                    <h5>{{comment.commentDate | date: 'dd-MM-yyyy HH:mm'}}}}</h5>
+                    <h5>{{comment.userId.id}}</h5>
+                </div>
+            </div>
+            <div ng-hide="editMode">
+                    <h2>Post name: {{post.name}}</h2>
+                    <h2>{{post.text}}</h2>
+                    <h2>{{post.timeAdded}}</h2>
             </div>
         </div>
     </div>

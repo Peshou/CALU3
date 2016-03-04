@@ -1,6 +1,7 @@
 //Helper class for storing the user's identity
 //We needed some help with this so we found it answered
 //http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication
+//no need to reinvent the whole wheel
 AngularApp.factory('Principal', ['$q', 'Account', function ($q, Account) {
     var _identity = undefined,
         _authenticated = false;
@@ -25,37 +26,39 @@ AngularApp.factory('Principal', ['$q', 'Account', function ($q, Account) {
             if (!_authenticated || !_identity || !_identity.authorities) {
                 return false;
             }
+
             for (var i = 0; i < authorities.length; i++) {
                 if (_identity.authorities.indexOf(authorities[i]) !== -1) {
                     return true;
                 }
             }
+
             return false;
         },
         authenticate: function (identity) {
             _identity = identity;
             _authenticated = identity !== null;
         },
-        identity: function(force){
+        identity: function (force) {
             var deferred = $q.defer();
-            if(force === true){
+            if (force === true) {
                 _identity = undefined;
             }
 
-            if(angular.isDefined(_identity)){
+            if (angular.isDefined(_identity)) {
                 deferred.resolve(_identity);
                 return deferred.promise;
             }
 
             Account.get().$promise
-                .then(function(account){
+                .then(function (account) {
                     _identity = account.data;
                     _authenticated = true;
                     deferred.resolve(_identity);
                 })
-                .catch(function(){
-                    _identity=null;
-                    _authenticated=false;
+                .catch(function () {
+                    _identity = null;
+                    _authenticated = false;
                     deferred.resolve(_identity);
                 });
             return deferred.promise;

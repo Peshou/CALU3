@@ -19,13 +19,8 @@ AngularApp.factory('AuthServerProvider', [
             logout: function () {
                 localStorageService.clearAll();
             },
-            /*     getToken: function () {
+                getToken: function () {
                 return localStorageService.get('token');
             }
-          ,
-            hasValidToken: function () {
-                var token = this.getToken();
-                return token && token.expires && token.expires > new Date().getTime();
-            }*/
         };
     }]);
