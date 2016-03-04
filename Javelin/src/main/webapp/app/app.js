@@ -57,8 +57,7 @@ AngularApp.config([
     '$urlRouterProvider',
     '$httpProvider',
     '$locationProvider',
-    //   '$compileProvider',
-    function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+    function ($stateProvider, $urlRouterProvider, $httpProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('site', {
             'abstract': true,
@@ -79,5 +78,4 @@ AngularApp.config([
         $httpProvider.interceptors.push('errorHandlerInterceptor');
         $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('authInterceptor');
-        // $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|ftp|blob):|data:image\//);
     }]);

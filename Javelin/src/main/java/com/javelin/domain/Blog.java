@@ -28,7 +28,7 @@ public class Blog {
 	private String description;
 
 	@JsonIgnore
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
 	
@@ -44,6 +44,17 @@ public class Blog {
 		this.description = description;
 		this.user = user;
 		this.blogPosts = blogPosts;
+	}
+
+	@Override
+	public String toString() {
+		return "Blog{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", description='" + description + '\'' +
+				", user=" + user +
+				", blogPosts=" + blogPosts +
+				'}';
 	}
 
 	@Override

@@ -92,7 +92,7 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/account/change_password", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    //  @Secured({AuthoritiesConstants.USER})
+    @Secured({AuthoritiesConstants.USER})
     public ResponseEntity<?> changePassword(@RequestBody PasswordDTO passwordDTO) {
         if (!checkPasswordLength(passwordDTO.getNewPassword())) {
             return new ResponseEntity<>("Incorrect password length", HttpStatus.BAD_REQUEST);

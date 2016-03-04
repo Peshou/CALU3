@@ -2,11 +2,15 @@ package com.javelin.web.rest;
 
 import java.util.List;
 
+import com.javelin.domain.User;
+import com.javelin.security.AuthoritiesConstants;
+import com.javelin.service.UserService;
 import org.apache.http.client.utils.URIBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -31,6 +35,9 @@ public class BlogController {
 
     @Autowired
     BlogPostService blogPostService;
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "/blogs/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Blog> getAllBlogs() {
@@ -60,6 +67,7 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/blogs", method = RequestMethod.POST)
+    @Secured({AuthoritiesConstants.USER})
     public ResponseEntity<?> saveNewBlog(@RequestParam @Valid Blog blog) {
         blog = blogService.save(blog);
         return new ResponseEntity<>(HttpStatus.CREATED);

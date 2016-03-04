@@ -233,7 +233,7 @@ gulp.task('serve', function() {
 
         browserSync({
             open: true,
-            port: 9000,
+            port: 8000,
             server: {
                 baseDir: opt.app
             },

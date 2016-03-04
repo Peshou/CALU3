@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class XAuthTokenFilter extends GenericFilterBean {
 
-    private final static String XAUTH_TOKEN_HEADER_NAME = "x-auth-token";
+    private final static String HEADER_NAME = "x-auth-token";
     private UserDetailsService userDetailsService;
     private TokenProvider tokenProvider;
 
@@ -29,7 +29,7 @@ public class XAuthTokenFilter extends GenericFilterBean {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         try {
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-            String authToken = httpServletRequest.getHeader(XAUTH_TOKEN_HEADER_NAME);
+            String authToken = httpServletRequest.getHeader(HEADER_NAME);
             if (StringUtils.hasText(authToken)) {
                 String username = this.tokenProvider.getUserNameFromToken(authToken);
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);

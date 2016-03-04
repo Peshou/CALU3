@@ -14,8 +14,6 @@ public class WebConfigurer {
         CorsConfiguration config = new CorsConfiguration();
         if (config.getAllowedOrigins() != null && !config.getAllowedOrigins().isEmpty()) {
             source.registerCorsConfiguration("/api/**", config);
-            source.registerCorsConfiguration("/v2/api-docs", config);
-            source.registerCorsConfiguration("/oauth/**", config);
         }
         return new CorsFilter(source);
     }

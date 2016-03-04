@@ -61,15 +61,14 @@ AngularApp
                 },
                 resolve: {}
             })
-        .
-        state('account', {
-            abstract: true,
-            parent: 'site'
-        })
+            .state('account', {
+                abstract: true,
+                parent: 'site'
+            })
             .state('search', {
                 parent: 'site',
                 url: '/search',
-                params:{searchInput: null},
+                params: {searchInput: null},
                 data: {
                     authorities: [],
                     pageTitle: 'Search Blogs'
@@ -161,7 +160,6 @@ AngularApp
                 parent: 'blogs',
                 url: '/{blogId}',
                 data: {
-                    authorities: ['ROLE_USER'],
                 },
                 views: {
                     'content@': {
@@ -169,22 +167,21 @@ AngularApp
                         controller: 'SingleBlogController'
                     }
                 }
-            });
-      /*      .state('blogs.blog.post', {
-                parent: 'blog',
-                url: '/{blogPostId}',
-                data: {
-                    authorities: []
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'views/account/blog_post.html',
-                        controller: 'BlogPostController'
-                    }
-                },
-                resolve: {}
+            })
+              .state('blog.post', {
+         parent: 'blog',
+         url: '/{blogPostId}',
+         data: {
+         },
+         views: {
+         'content@': {
+         templateUrl: 'views/account/blog_post.html',
+         controller: 'BlogPostController'
+         }
+         },
+         resolve: {}
 
-            });*/
+         });
     }]);
 
 

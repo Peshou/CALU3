@@ -80,7 +80,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    //brishenje na korisnik (ne e poddzrzhano radi foreign key constraint) ?
+    //brishenje na korisnik (ne e poddzrzhano radi foreign key constraint) ? trreba da se napravi cascade ama ke vidime otom potom
     @RequestMapping(value = "/users/{username}",method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)
     @Secured({AuthoritiesConstants.ADMIN})
     public ResponseEntity<Void> deleteUser(@PathVariable String username){

@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
 public class XAuthConfiguration {
     @Bean
     public TokenProvider tokenProvider(){
-        return new TokenProvider("javelinAuthSecret",1800);
+        return new TokenProvider("javelinAuthSecret",1500);
     }
 }

@@ -15,21 +15,6 @@ public final class SecurityUtils {
     public SecurityUtils() {
     }
 
-    public static String getCurrentUserUsername() {
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-        String username = null;
-        if (authentication != null) {
-            if (authentication.getPrincipal() instanceof UserDetails) {
-                UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
-                username = springSecurityUser.getUsername();
-            } else if (authentication.getPrincipal() instanceof String) {
-                username = (String) authentication.getPrincipal();
-            }
-        }
-        return username;
-    }
-
     public static boolean isAuthenticated() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Collection<? extends GrantedAuthority> authorities = securityContext.getAuthentication().getAuthorities();
@@ -52,18 +37,6 @@ public final class SecurityUtils {
             }
         }
         throw new IllegalStateException("User not found!");
-    }
-
-    public static boolean isCurrentUserInRole(String authority) {
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-        if (authentication != null) {
-            if (authentication.getPrincipal() instanceof UserDetails) {
-                UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
-                return springSecurityUser.getAuthorities().contains(new SimpleGrantedAuthority(authority));
-            }
-        }
-        return false;
     }
 
 

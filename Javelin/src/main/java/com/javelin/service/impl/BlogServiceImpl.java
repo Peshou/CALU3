@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.javelin.domain.User;
+import com.javelin.repository.UserRepository;
 import com.javelin.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,9 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     BlogRepository blogRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public Blog findOne(Long id) {
@@ -36,6 +41,8 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Blog save(Blog blog) {
+        User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
+        blog.setUser(user);
         return blogRepository.save(blog);
     }
 

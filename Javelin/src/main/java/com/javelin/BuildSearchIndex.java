@@ -15,10 +15,6 @@ import javax.persistence.PersistenceContext;
 public class BuildSearchIndex
         implements ApplicationListener<ContextRefreshedEvent> {
 
-    // ------------------------
-    // PRIVATE FIELDS
-    // ------------------------
-
     @PersistenceContext
     private EntityManager entityManager;
 
