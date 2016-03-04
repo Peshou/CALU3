@@ -40,13 +40,7 @@ public class BlogPostServiceImpl implements BlogPostService {
     @Override
     public List<BlogPost> findAll() {
         List<BlogPost> allPosts = blogPostRepository.findAll();
-        List<BlogPost> publicPosts = new ArrayList<>();
-        for (BlogPost post : allPosts) {
-            if (post.isPublic_post()) {
-                publicPosts.add(post);
-            }
-        }
-        return publicPosts;
+        return allPosts;
     }
 
     @Override
@@ -60,12 +54,7 @@ public class BlogPostServiceImpl implements BlogPostService {
                 return posts;
             }
         }
-        for (BlogPost post : posts) {
-            if (post.isPublic_post()) {
-                finalPosts.add(post);
-            }
-        }
-        return finalPosts;
+        return null;
     }
 
     @Override
@@ -77,14 +66,10 @@ public class BlogPostServiceImpl implements BlogPostService {
                 if (user != null) {
                     if (user.equals(blog.getUser())) {
                         return blogPost;
-
+//TODO: SMENI SVE SO BLOGPOSTOVITE BLA BLA
                     }
-                } else {
-                    if (blogPost.isPublic_post()) {
-                        return blogPost;
-                    } else {
-                        return null;
-                    }
+                }
+                else {
                 }
             }
         }

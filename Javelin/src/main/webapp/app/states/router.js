@@ -142,10 +142,10 @@ AngularApp
                 resolve: {}
             })
             .state('blogs', {
-                parent: 'account',
+                parent: 'site',
                 url: '/blogs',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: [],
                     pageTitle: 'User\'s Blogs'
                 },
                 views: {
@@ -168,8 +168,8 @@ AngularApp
                 }
             })
             .state('post', {
-                parent: 'blog',
-                url: '/{blogPostId}',
+                url: '/blogs/{id}/{blogPostId}',
+                parent: 'site',
                 data: {},
                 views: {
                     'content@': {

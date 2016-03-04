@@ -37,7 +37,7 @@ AngularApp.run([
                 $rootScope.previousStateName = fromState.name;
                 $rootScope.previousStateParams = fromParams;
             }
-
+        console.log(toState);
             if (toState.data.pageTitle) {
                 title = toState.data.pageTitle;
             }

@@ -38,8 +38,6 @@ public class BlogPost  implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeAdded;
 
-	@Column(nullable = false, columnDefinition = "TINYINT(1)")
-	private boolean public_post = true;
 
 	@NotNull
 	@Field(store = Store.NO)
@@ -49,11 +47,10 @@ public class BlogPost  implements Serializable {
 	public BlogPost() {
 	}
 
-	public BlogPost(String name, Blog blog, Date timeAdded, boolean public_post, String text) {
+	public BlogPost(String name, Blog blog, Date timeAdded,  String text) {
 		this.name = name;
 		this.blog = blog;
 		this.timeAdded = timeAdded;
-		this.public_post = public_post;
 		this.text = text;
 	}
 
@@ -97,13 +94,6 @@ public class BlogPost  implements Serializable {
 		this.text = text;
 	}
 
-	public boolean isPublic_post() {
-		return public_post;
-	}
-
-	public void setPublic_post(boolean public_post) {
-		this.public_post = public_post;
-	}
 
 	@Override
 	public String toString() {
@@ -112,7 +102,6 @@ public class BlogPost  implements Serializable {
 				", name='" + name + '\'' +
 				", blog=" + blog +
 				", timeAdded=" + timeAdded +
-				", public_post=" + public_post +
 				", text='" + text + '\'' +
 				'}';
 	}
