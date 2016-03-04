@@ -208,4 +208,10 @@ body {
 .front img{
     max-width:50%;
 }
+.img-about{
+    width: 100%;
+}
+.text-about{
+    text-align: justify;
+}
 
