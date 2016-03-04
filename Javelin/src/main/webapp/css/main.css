@@ -132,6 +132,7 @@ body{
 }
 .register{
     color:#FFFFFF;
+    padding-top: 5%;
 }
 .register input{
     width: 400px;
@@ -141,9 +142,28 @@ body{
 }
 .login{
     color: #FFFFFF;
+    padding-top: 5%;
 }
 .alert-warning2{
     width: 360px;
+}
+.blogs-elements1{
+    color: #FFFFFF;
+    width: 40%;
+}
+.blogs-elements1 input{
+    width: 400px;
+}
+.password-content{
+    width: 40%;
+    color: #FFFFFF;
+}
+
+.settings-content{
+    color: #FFFFFF;
+}
+.settings-content input{
+    width: 60%;
 }
 
 
