@@ -1,6 +1,6 @@
 package com.javelin.service;
 
-import com.javelin.domain.Authority;
+import com.javelin.model.Authority;
 
 public interface AuthorityService {
     Authority findOne(String authority);

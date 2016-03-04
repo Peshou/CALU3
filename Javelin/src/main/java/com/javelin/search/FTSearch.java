@@ -1,6 +1,6 @@
 package com.javelin.search;
 
-import com.javelin.domain.Blog;
+import com.javelin.model.Blog;
 import org.apache.lucene.search.Query;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;

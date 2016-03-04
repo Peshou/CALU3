@@ -1,23 +1,20 @@
 package com.javelin.service.impl;
 
-import com.javelin.domain.Blog;
-import com.javelin.domain.BlogPost;
-import com.javelin.domain.User;
+import com.javelin.model.Blog;
+import com.javelin.model.BlogPost;
+import com.javelin.model.User;
 import com.javelin.repository.BlogPostRepository;
 import com.javelin.repository.BlogRepository;
 import com.javelin.repository.UserRepository;
 import com.javelin.security.SecurityUtils;
 import com.javelin.service.BlogPostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Service

@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.javelin.domain.User;
+import com.javelin.model.User;
 import com.javelin.repository.UserRepository;
 import com.javelin.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javelin.domain.Blog;
+import com.javelin.model.Blog;
 import com.javelin.repository.BlogRepository;
 import com.javelin.service.BlogService;
 

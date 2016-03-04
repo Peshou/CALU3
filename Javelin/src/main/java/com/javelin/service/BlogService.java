@@ -2,7 +2,7 @@ package com.javelin.service;
 
 import java.util.List;
 
-import com.javelin.domain.Blog;
+import com.javelin.model.Blog;
 
 public interface BlogService {
 	Blog findOne(Long id);

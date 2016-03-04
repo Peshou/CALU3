@@ -1,7 +1,7 @@
 package com.javelin;
 
-import com.javelin.domain.Authority;
-import com.javelin.domain.User;
+import com.javelin.model.Authority;
+import com.javelin.model.User;
 import com.javelin.repository.AuthorityRepository;
 import com.javelin.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class JavelinApplication implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         authorityRepository.save(new Authority("ROLE_USER"));
         authorityRepository.save(new Authority("ROLE_ADMIN"));
-        if (userRepository.findOneByUsername("system") == null) {
+       /* if (userRepository.findOneByUsername("system") == null) {
             User system = new User("system", "$2a$10$mE.qmcV0mFU5NcKh73TZx.z4ueI/.bDWbj0T1BYyqP481kGGarKLG", "System", "System", "system@localhost", true);
             Set<Authority> authoritiesSystem = new HashSet<>();
             authoritiesSystem.add(authorityRepository.findOne("ROLE_USER"));
@@ -60,6 +60,6 @@ public class JavelinApplication implements CommandLineRunner {
             authoritiesUser.add(authorityRepository.findOne("ROLE_USER"));
             user.setAuthorities(authoritiesUser);
             userRepository.save(user);
-        }
+        }*/
     }
 }

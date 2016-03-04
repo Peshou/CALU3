@@ -1,7 +1,7 @@
 package com.javelin.service;
 
-import com.javelin.domain.User;
-import com.javelin.web.dto.PasswordDTO;
+import com.javelin.model.User;
+import com.javelin.service.transferObjects.PasswordTransferObject;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,13 +19,11 @@ public interface UserService {
 
     void updateUserImage(byte[] image);
 
-    boolean changePassword(PasswordDTO passwordDTO);
+    boolean changePassword(PasswordTransferObject passwordTransferObject);
 
-    User findOneById(Long id);
 
     List<User> findAll();
 
-    User getUserWithAuthoritiesByLogin(String username);
 
     void deleteUserInformation(String username);
 }

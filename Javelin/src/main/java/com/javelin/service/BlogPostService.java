@@ -1,6 +1,6 @@
 package com.javelin.service;
 
-import com.javelin.domain.BlogPost;
+import com.javelin.model.BlogPost;
 
 import java.util.List;
 

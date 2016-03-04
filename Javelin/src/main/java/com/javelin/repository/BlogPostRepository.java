@@ -1,6 +1,6 @@
 package com.javelin.repository;
 
-import com.javelin.domain.BlogPost;
+import com.javelin.model.BlogPost;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

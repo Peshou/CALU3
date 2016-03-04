@@ -1,12 +1,12 @@
 package com.javelin.service.impl;
 
-import com.javelin.domain.Authority;
-import com.javelin.domain.User;
+import com.javelin.model.Authority;
+import com.javelin.model.User;
 import com.javelin.repository.AuthorityRepository;
 import com.javelin.repository.UserRepository;
 import com.javelin.security.SecurityUtils;
 import com.javelin.service.UserService;
-import com.javelin.web.dto.PasswordDTO;
+import com.javelin.service.transferObjects.PasswordTransferObject;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -97,13 +97,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean changePassword(PasswordDTO passwordDTO) {
+    public boolean changePassword(PasswordTransferObject passwordTransferObject) {
         User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
         if (user != null) {
-            String encryptedOldPassword = passwordEncoder.encode(passwordDTO.getOldPassword());
-            boolean matches = passwordEncoder.matches(passwordDTO.getOldPassword(), user.getPassword());
+            String encryptedOldPassword = passwordEncoder.encode(passwordTransferObject.getOldPassword());
+            boolean matches = passwordEncoder.matches(passwordTransferObject.getOldPassword(), user.getPassword());
             if (matches) {
-                String encryptedPassword = passwordEncoder.encode(passwordDTO.getNewPassword());
+                String encryptedPassword = passwordEncoder.encode(passwordTransferObject.getNewPassword());
                 user.setPassword(encryptedPassword);
                 userRepository.save(user);
                 return true;
@@ -115,25 +115,13 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-    @Override
-    public User findOneById(Long id) {
-        return userRepository.findOne(id);
-    }
+
 
     @Override
     public List<User> findAll() {
         return userRepository.findAll();
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public User getUserWithAuthoritiesByLogin(String username) {
-        User user = userRepository.findOneByUsername(username);
-        if (user != null) {
-            user.getAuthorities().size();
-        }
-        return user;
-    }
 
     @Override
     @Transactional(readOnly = true)

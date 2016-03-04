@@ -1,6 +1,6 @@
 package com.javelin.service.impl;
 
-import com.javelin.domain.Authority;
+import com.javelin.model.Authority;
 import com.javelin.repository.AuthorityRepository;
 import com.javelin.service.AuthorityService;
 import org.springframework.beans.factory.annotation.Autowired;

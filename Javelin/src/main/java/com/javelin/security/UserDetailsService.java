@@ -1,7 +1,7 @@
 package com.javelin.security;
 
-import com.javelin.domain.Authority;
-import com.javelin.domain.User;
+import com.javelin.model.Authority;
+import com.javelin.model.User;
 import com.javelin.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
