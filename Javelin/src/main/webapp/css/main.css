@@ -261,6 +261,21 @@ hr.small {
 .footer{
 
 }
+.register{
+    color:#FFFFFF;
+}
+.register input{
+    width: 400px;
+}
+.alert-warning1{
+    width: 400px;
+}
+.login{
+    color: #FFFFFF;
+}
+.alert-warning2{
+    width: 360px;
+}
 /*.post-preview > a {
     color: #404040;
 }

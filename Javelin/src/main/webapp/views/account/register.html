@@ -1,6 +1,7 @@
+<header class="intro-header" style="background-image: url('images/header-pic-registration.png')">
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="row register">
+        <div class="col-md-8 col-md-offset-4 ">
             <h1>Registration</h1>
 
             <div class="alert alert-success" ng-show="success">
@@ -23,7 +24,7 @@
                 The password and its confirmation do not match!
             </div>
         </div>
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-4">
             <form ng-show="!success" name="form" role="form" novalidate ng-submit="register()" show-validation>
 
                 <div class="form-group">
@@ -115,9 +116,10 @@
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Register</button>
             </form>
             <p></p>
-            <div class="alert alert-warning">
+            <div class="alert alert-warning alert-warning1">
                 If you want to <a class="alert-link" href="#/login">sign in</a>, you can try the default accounts:<br/>- Administrator (username="admin" and password="admin") <br/>- User (username="user" and password="user").
             </div>
         </div>
     </div>
 </div>
+</header>
