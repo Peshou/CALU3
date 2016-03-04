@@ -110,18 +110,14 @@ public class UserServiceImpl implements UserService {
             }else{
                 return false;
             }
-
         }
         return false;
     }
-
-
 
     @Override
     public List<User> findAll() {
         return userRepository.findAll();
     }
-
 
     @Override
     @Transactional(readOnly = true)

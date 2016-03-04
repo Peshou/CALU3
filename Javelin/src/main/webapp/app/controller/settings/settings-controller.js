@@ -47,10 +47,6 @@ AngularApp
                 });
             };
 
-
-            /**
-             * Store the "settings account" in a separate variable, and not in the shared "account" variable.
-             */
             var copyAccount = function (account) {
                 return {
                     email: account.email,

@@ -19,14 +19,6 @@ AngularApp
                     oldPassword: $scope.oldPassword,
                     newPassword: $scope.password
                 }
-               /* Auth.changePassword($scope.oldAndNew).then(function () {
-                    $scope.error = null;
-                    $scope.success = 'OK';
-                }).catch(function () {
-                    $scope.success = null;
-                    $scope.error = 'ERROR';
-                    $scope.oldPasswordWrong = 'ERROR';
-                });*/
                 Auth.changePassword($scope.oldAndNew).then(function () {
                     $scope.error = null;
                     $scope.oldPasswordWrong = null;

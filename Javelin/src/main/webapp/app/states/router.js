@@ -15,14 +15,14 @@ AngularApp
                 },
                 resolve: {}
             })
-            .state('about',{
-              parent:'site',
+            .state('about', {
+                parent: 'site',
                 url: '/about',
-                data:{
+                data: {
                     authorities: [],
                     pageTitle: 'About'
                 },
-                views:{
+                views: {
                     'content@': {
                         templateUrl: 'views/about/about.html'
                     }
@@ -154,6 +154,20 @@ AngularApp
                 },
                 resolve: {}
             })
+            .state('allBlogs',{
+            parent: 'site',
+                url:'/allBlogs',
+                data:{
+                    authorities: [],
+                    pageTitle: 'All Blogs'
+                },
+                views:{
+                    'content@':{
+                        templateUrl: 'views/account/allBlogs.html',
+                        controller: 'AllBlogController'
+                    }
+                }
+        })
             .state('blogs', {
                 parent: 'site',
                 url: '/blogs',
@@ -172,7 +186,7 @@ AngularApp
             .state('blogs.blog', {
                 parent: 'blogs',
                 url: '/{blogId}',
-                data: {},
+                data: {authorities: []},
                 views: {
                     'content@': {
                         templateUrl: 'views/account/blog.html',
@@ -183,7 +197,7 @@ AngularApp
             .state('post', {
                 url: '/blogs/{id}/{blogPostId}',
                 parent: 'site',
-                data: {},
+                data: {authorities: []},
                 views: {
                     'content@': {
                         templateUrl: 'views/account/blog_post.html',

@@ -4,13 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
-public class BlogPost  implements Serializable {
+public class BlogPost  implements Serializable, Comparable<BlogPost> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,10 +31,13 @@ public class BlogPost  implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeAdded;
 
-
 	@NotNull
-	@Column(nullable = false)
+	@Column(nullable = false,length = 4000)
 	private String text;
+
+	@OneToMany(mappedBy = "blogPostId",fetch = FetchType.EAGER)
+	private List<Comment> comments;
+
 
 	public BlogPost() {
 	}
@@ -45,7 +49,15 @@ public class BlogPost  implements Serializable {
 		this.text = text;
 	}
 
-	public Long getId() {
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Long getId() {
 		return id;
 	}
 
@@ -86,18 +98,19 @@ public class BlogPost  implements Serializable {
 	}
 
 
-	@Override
-	public String toString() {
-		return "BlogPost{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				", blog=" + blog +
-				", timeAdded=" + timeAdded +
-				", text='" + text + '\'' +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "BlogPost{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", blog=" + blog +
+                ", timeAdded=" + timeAdded +
+                ", text='" + text + '\'' +
+                ", comments=" + comments +
+                '}';
+    }
 
-	@Override
+    @Override
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
@@ -119,5 +132,8 @@ public class BlogPost  implements Serializable {
 		return result;
 	}
 
-
+	@Override
+	public int compareTo(BlogPost blogPost) {
+		return this.timeAdded.compareTo(blogPost.timeAdded);
+	}
 }

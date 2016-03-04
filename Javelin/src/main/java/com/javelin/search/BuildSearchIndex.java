@@ -1,4 +1,4 @@
-package com.javelin;
+package com.javelin.search;
 
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.Search;

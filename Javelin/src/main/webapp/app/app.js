@@ -38,13 +38,11 @@ AngularApp.run([
                 $rootScope.previousStateParams = fromParams;
             }
         console.log(toState);
-        //    $rootScope.hasAuthority = Principal.hasAuthority("ROLE_ADMIN");
-         //   console.log($rootScope.hasAuthority);
             if (toState.data.pageTitle) {
                 title = toState.data.pageTitle;
             }
             $window.document.title = title;
-            // console.log(toState);sdadsa
+            // console.log(toState);
         });
         $rootScope.back = function () {
             if ($state.get($rootScope.previousStateName) === null) {
@@ -77,7 +75,6 @@ AngularApp.config([
                 ]
             }
         });
-    //    $httpProvider.interceptors.push('errorHandlerInterceptor');
         $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('authInterceptor');
     }]);

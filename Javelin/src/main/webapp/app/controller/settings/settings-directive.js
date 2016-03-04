@@ -1,5 +1,5 @@
-AngularApp
-    .directive('fileModel', ['$parse', function ($parse) {
+//input type=file has no ng-model so we must make one
+AngularApp.directive('fileModel', ['$parse', function ($parse) {
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {

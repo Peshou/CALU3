@@ -54,7 +54,6 @@ public class UserTransferObject {
         this.userDescription=user.getUserDescription();
         this.userImage = user.getUserImage();
         this.active = user.isActive();
-      // this(user.getUsername(),null, user.getFirstName(), user.getLastName(),user.getEmail(),getAuthorityString(user.getAuthorities()));
     }
     private Set<String> getAuthorityString(Set<Authority> userAuthorities){
         Set<String> authorities=  new HashSet<String>();

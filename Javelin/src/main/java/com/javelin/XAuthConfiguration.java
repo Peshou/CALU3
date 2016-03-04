@@ -1,4 +1,4 @@
-package com.javelin.config;
+package com.javelin;
 
 import com.javelin.security.xauth.TokenProvider;
 import org.springframework.context.annotation.Bean;
