@@ -24,11 +24,25 @@
     color: white;
 }
 .home .h1-heading {
-    font-size: 48px;
+    font-size: 60px;
+    font-weight: bold;
     color: #FFFFFF;
-    margin-bottom: 125px;
+    margin-bottom: 250px;
     margin-left: 10px;
 }
+.footer{
+    text-align: center;
+}
+.footer i{
+    font-size: 35px;
+}
+.text-main{
+    text-align: justify;
+}
+.blogs-elements{
+
+}
+
 /*!
  * Clean Blog v1.0.0 (http://startbootstrap.com)
  * Copyright 2014 Start Bootstrap
@@ -243,6 +257,9 @@ hr.small {
     .intro-header .post-heading .subheading {
         font-size: 30px;
     }
+}
+.footer{
+
 }
 /*.post-preview > a {
     color: #404040;
