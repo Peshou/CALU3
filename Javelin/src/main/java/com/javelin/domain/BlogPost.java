@@ -12,20 +12,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Indexed
 @Table
 public class BlogPost  implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotNull
-	@Field(store = Store.NO)
 	@Column(nullable = false)
 	private String name;
 
@@ -34,13 +30,11 @@ public class BlogPost  implements Serializable {
 	@JoinColumn(name = "blog_id", referencedColumnName = "id")
 	private Blog blog;
 
-	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeAdded;
 
 
 	@NotNull
-	@Field(store = Store.NO)
 	@Column(nullable = false)
 	private String text;
 

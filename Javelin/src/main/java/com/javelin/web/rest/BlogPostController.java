@@ -5,10 +5,7 @@ import com.javelin.service.BlogPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.print.attribute.standard.Media;
 import javax.validation.Valid;
@@ -59,7 +56,7 @@ public class BlogPostController {
     }
 
     @RequestMapping(value = "/{id}/posts/{postId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateBlogPostFromBlog(@PathVariable Long id, @PathVariable Long postId, @Valid BlogPost blogPost) {
+    public ResponseEntity<?> updateBlogPostFromBlog(@PathVariable Long id, @PathVariable Long postId,@Valid  BlogPost blogPost) {
         blogPostService.save(blogPost);
         return ResponseEntity.ok().build();
     }
