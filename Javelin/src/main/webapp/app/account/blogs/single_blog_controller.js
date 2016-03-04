@@ -1,7 +1,12 @@
 AngularApp.controller('SingleBlogController', [
-    '$scope','Blog','$stateParams', function ($scope,Blog,$stateParams) {
+    '$scope','Blog','$state','$stateParams','BlogPost', function ($scope,Blog,$state,$stateParams,BlogPost) {
+       // console.log($stateParams.blogId);
+
         $scope.blog = Blog.get({id: $stateParams.blogId});
-      //  console.log($stateParams);
-        console.log($scope.blog);
+
+        $scope.posts = BlogPost.getPosts({id:  $stateParams.blogId  });
+console.log($scope.posts);
+        //  console.log($stateParams);
+        //console.log($scope.blog);
        //console.log($scope.blog.blogPosts);
     }]);

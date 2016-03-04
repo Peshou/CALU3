@@ -159,8 +159,7 @@ AngularApp
             .state('blogs.blog', {
                 parent: 'blogs',
                 url: '/{blogId}',
-                data: {
-                },
+                data: {},
                 views: {
                     'content@': {
                         templateUrl: 'views/account/blog.html',
@@ -168,20 +167,19 @@ AngularApp
                     }
                 }
             })
-              .state('blog.post', {
-         parent: 'blog',
-         url: '/{blogPostId}',
-         data: {
-         },
-         views: {
-         'content@': {
-         templateUrl: 'views/account/blog_post.html',
-         controller: 'BlogPostController'
-         }
-         },
-         resolve: {}
+            .state('post', {
+                parent: 'blog',
+                url: '/{blogPostId}',
+                data: {},
+                views: {
+                    'content@': {
+                        templateUrl: 'views/account/blog_post.html',
+                        controller: 'BlogPostController'
+                    }
+                },
+                resolve: {}
 
-         });
+            });
     }]);
 
 

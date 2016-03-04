@@ -5,6 +5,7 @@ import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -13,7 +14,10 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Indexed
 @Table
-public class BlogPost {
+public class BlogPost  implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 
 
 	@Id

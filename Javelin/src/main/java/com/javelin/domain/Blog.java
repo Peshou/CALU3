@@ -1,5 +1,6 @@
 package com.javelin.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -13,7 +14,9 @@ import org.hibernate.search.annotations.Store;
 @Entity
 @Indexed
 @Table
-public class Blog {
+public class Blog  implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
