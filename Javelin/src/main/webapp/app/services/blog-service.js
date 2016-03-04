@@ -8,3 +8,5 @@ AngularApp.factory('BlogPost', ['$resource', function BlogPost($resource) {
     });
 
 }]);
+
+

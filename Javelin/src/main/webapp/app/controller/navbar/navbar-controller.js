@@ -6,7 +6,7 @@ AngularApp.controller('NavbarController',
         'Principal',
         function ($scope, $location, $state, Auth, Principal) {
             $scope.isAuthenticated = Principal.isAuthenticated;
-            console.log($scope.isAuthenticated());
+          //  console.log($scope.isAuthenticated());
             $scope.$state = $state;
 
             $scope.logout = function () {
@@ -14,10 +14,9 @@ AngularApp.controller('NavbarController',
                 $state.go('home');
             };
             $scope.search = function (text) {
-                if (text.trim().length > 0) {
-                    $state.go("search", ({searchInput: $scope.searchText}));
+                if (text !== undefined && text.trim().length > 0) {
+                    $state.go("allBlogs", ({searchInput: $scope.searchText}));
                 }
-                console.log(text);
             };
 
 

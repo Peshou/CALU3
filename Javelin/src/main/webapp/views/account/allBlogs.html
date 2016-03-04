@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header">{{account.username}}'s Blogs</h1>
+            <div infinite-scroll="addMoreBlogs()" infinite-scroll-distance="3">
+                <div ng-repeat="blog in blogs">
+                    <h3>{{blog.name}}
+                        <button class="btn btn-success" ui-sref="blogs.blog({blogId: blog.id})">Open</button>
+                    </h3>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

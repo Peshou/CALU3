@@ -18,7 +18,7 @@
                     <button class="btn btn-default" ng-click="search(searchText)">Search!</button>
                 </form>
                 <li ui-sref-active="active"><a ui-sref="allBlogs">All Blogs</a></li>
-                <li ui-sref-active="active"><a ui-sref="blogs">My Blogs</a></li>
+
                 <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" id="account-menu">
                         <span>
@@ -30,6 +30,8 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
+                        <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="blogs" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-folder-open"></span>
+                            &#xA0;<span>My Blogs</span></a></li>
                         <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="settings" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-wrench"></span>
                             &#xA0;<span>Settings</span></a></li>
                         <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="password" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-lock"></span>

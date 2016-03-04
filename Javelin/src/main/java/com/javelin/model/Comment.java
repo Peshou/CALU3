@@ -4,6 +4,7 @@ package com.javelin.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -28,6 +29,7 @@ public class Comment implements Serializable, Comparable<Comment> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentId;
 
+    @NotNull
     @Column(name = "commentText", nullable = false, length = 4000)
     private String commentText;
 
