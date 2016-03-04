@@ -172,7 +172,7 @@ AngularApp
                 parent: 'site',
                 url: '/blogs',
                 data: {
-                    authorities: [],
+                    authorities: ['ROLE_USER'],
                     pageTitle: 'User\'s Blogs'
                 },
                 views: {

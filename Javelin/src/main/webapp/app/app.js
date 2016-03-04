@@ -13,7 +13,8 @@ var AngularApp = angular.module('angularBlogApp',
         'toastr',
         'ui.router',
         'angular-loading-bar',
-        'ngAnimate'
+        'ngAnimate',
+        'infinite-scroll'
     ]);
 AngularApp.run([
     '$rootScope',
