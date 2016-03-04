@@ -14,7 +14,7 @@
 
     <!-- Concatenated CSS -->
     <link href="dest/lib.css?rev=c20617d3548416941b6fbcfe08bc0088" rel="stylesheet">
-    <link href="dest/app.css?rev=c7e2497aa25d2b048b0631cab8f4ca3b" rel="stylesheet">
+    <link href="dest/app.css?rev=3958cbef23bf7f29a935247965bd1abf" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -25,13 +25,14 @@
 
 <body ng-app="angularBlogApp" ng-cloak="">
 <div ui-view="navbar" ng-hide="$state.current.name === 'home'"></div>
-<div ui-view="content"></div>
+<div ui-view="content" style=" margin-top: -20px;"></div>
 
-
+<hr/>
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
             <div class="footer">
+
                 <div>
                     <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-square"></i></a>
                     <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter-square"></i></a>
@@ -39,7 +40,7 @@
                     <a href="https://plus.google.com/" target="_blank"><i class="fa fa-instagram"></i></a>
                 </div>
                 <p>&copy; Blog15 2016. All rights reserved<br/>
-                    Designed by: Team15 &reg; Solutions  D.O.O Skopje
+                    Designed by: Team15 &reg; Solutions D.O.O Skopje
                 </p>
 
                 <div>{{$state.current.name}}</div>
@@ -53,6 +54,6 @@
 <!-- Concatenated application -->
 <script src="dest/src.js?rev=3679b9055ad8767c6056142f2c6f91b9"></script>
 <!-- All html templates -->
-<script src="dest/templates.js?rev=6c2119fc8630e2da33e3c0aaa18be1e0"></script>
+<script src="dest/templates.js?rev=20da22bd4cf0cd878610dddb6b2785eb"></script>
 </body>
 </html>

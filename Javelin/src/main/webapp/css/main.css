@@ -163,7 +163,9 @@ body{
 .settings-content input{
     width: 60%;
 }
-
+.settings-tools{
+    width: 60%;
+}
 
 
 

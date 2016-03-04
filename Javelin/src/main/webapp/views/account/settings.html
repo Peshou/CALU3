@@ -1,4 +1,4 @@
-<header class="intro-header" style="background-image: url('images/settings-background.jpg')">
+<header class="intro-header" style="background-image: url('images/settings-back.png')">
 <div class="container settings-content">
     <div class="row">
         <div class="col-md-8 col-md-offset-3">
@@ -6,13 +6,13 @@
             <h2>User settings for <b>{{settingsAccount.username}}</b></h2>
 
             <br><br>
-            <div class="alert alert-success" ng-show="success">
+            <div class="alert alert-success settings-tools" ng-show="success">
                 <strong>Settings saved!</strong>
             </div>
-            <div class="alert alert-danger" ng-show="error">
+            <div class="alert alert-danger settings-tools" ng-show="error">
                 <strong>An error has occurred!</strong> Settings could not be saved.
             </div>
-            <div class="alert alert-danger" ng-show="errorEmailExists">
+            <div class="alert alert-danger settings-tools" ng-show="errorEmailExists">
                 <strong>E-mail is already in use!</strong> Please choose another one.
             </div>
 

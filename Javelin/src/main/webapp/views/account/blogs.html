@@ -5,14 +5,14 @@
             <h1 class="page-header">Create a new Blog</h1>
             <form name="form" role="form" show-validation novalidate ng-submit="createBlog()" >
                 <div class="form-group">
-                    <label class="control-label" for="firstName">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName"
-                           placeholder="Your first name"
-                           ng-model="settingsAccount.firstName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
-                    <div ng-show="form.firstName.$dirty && form.firstName.$invalid">
+                    <label class="control-label" for="blogName">Blog Name</label>
+                    <input type="text" class="form-control" id="blogName" name="blogName"
+                           placeholder="Your blog name"
+                           ng-model="settingsAccount.blogName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                    <div ng-show="form.blogName.$dirty && form.blogName.$invalid">
                         <p class="help-block"
-                           ng-show="form.firstName.$error.required">
-                            Your first name is required.
+                           ng-show="form.blogName.$error.required">
+                            The Blog name is required.
                         </p>
                         <p class="help-block"
                            ng-show="form.firstName.$error.minlength">
@@ -44,27 +44,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="email">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Your e-mail"
-                           ng-model="settingsAccount.email" ng-minlength=5 ng-maxlength=100 required maxlength="100">
-                    <div ng-show="form.email.$dirty && form.email.$invalid">
-                        <p class="help-block"
-                           ng-show="form.email.$error.required">
-                            Your e-mail is required.
-                        </p>
-                        <p class="help-block"
-                           ng-show="form.email.$error.email">
-                            Your e-mail is invalid.
-                        </p>
-                        <p class="help-block"
-                           ng-show="form.email.$error.minlength">
-                            Your e-mail is required to be at least 5 characters.
-                        </p>
-                        <p class="help-block"
-                           ng-show="form.email.$error.maxlength">
-                            Your e-mail cannot be longer than 100 characters.
-                        </p>
-                    </div>
+                    <label class="control-label" for="description">E-mail</label>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Blog description"
+                           ng-model="settingsAccount.description" >
                 </div>
 
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Create</button>
@@ -77,7 +59,7 @@
             <h1 class="page-header">{{account.username}}'s Blogs</h1>
             <div ng-repeat="blog in blogs">
                 <h3>{{blog.name}}
-                    <button class="btn btn-warning" ui-sref="blogs.blog({blogId: blog.id})">Click me lolz</button>
+                    <button class="btn btn-success" ui-sref="blogs.blog({blogId: blog.id})">Open</button>
                 </h3>
                 <hr/>
             </div>
