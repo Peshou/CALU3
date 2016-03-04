@@ -3,12 +3,12 @@
         <div class="col-sm-12">
             <div ng-show="postMaker">
                     <h2>{{post.id}}</h2>
-                    <input type="text" ng-model="editPost.text" value="{{post.name}}"/>
-                    <input type="text" ng-model="editPost.text" value="{{post.text}}"/></h5>
-                    <input type="text" ng-model="editPost.text" value="{{post.name}}"/></h5>
-                    <h5>{{post.text}}</h5>
-                    <h5>{{post.timeAdded}}</h5>
-
+                <form name="form" role="form">
+                    <input type="text" class="form-control" ng-model="editPost.name" />
+                    <input type="text"class="form-control" ng-model="editPost.text" />
+                    <h5>{{post.timeAdded | date: 'yyyy-MM-dd HH:mm'}}</h5>
+                    <button type="submit" class="btn btn-success" ng-click="savePost()">Save Post</button>
+                </form>
             </div>
             <div ng-hide="postMaker">
                 <h2>{{post.id}}</h2>

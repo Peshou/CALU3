@@ -15,6 +15,19 @@ AngularApp
                 },
                 resolve: {}
             })
+            .state('about',{
+              parent:'site',
+                url: '/about',
+                data:{
+                    authorities: [],
+                    pageTitle: 'About'
+                },
+                views:{
+                    'content@': {
+                        templateUrl: 'views/about/about.html'
+                    }
+                }
+            })
             .state('error', {
                 parent: 'site',
                 url: '/error',
