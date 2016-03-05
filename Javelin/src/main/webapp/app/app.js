@@ -33,7 +33,7 @@ AngularApp.run([
             }
         });
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-            var title = 'Demoz';
+            var title = 'Blog 15';
             if (toState.name != 'login' && $rootScope.previousStateName) {
                 $rootScope.previousStateName = fromState.name;
                 $rootScope.previousStateParams = fromParams;

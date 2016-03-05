@@ -26,6 +26,12 @@
                 <p class="blog-text-date-settings">Created on: {{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</p>
             </div>
             <h2 class="page-header">Comments</h2>
+            <form name="form2" role="form">
+                <div class="form-group">
+                    <textarea class="form-control" ng-model="comment.commentText" required rows="5"></textarea>
+                </div>
+                <button class="btn btn-primary" ng-click="postComment()">Comment!</button>
+            </form>
             <div ng-repeat="comment in post.comments">
                 <div class="media">
                     <div class="media-left">
