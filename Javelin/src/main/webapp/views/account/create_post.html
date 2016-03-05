@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 class="page-header">Create a new Blog Post for the Blog: {{</h1>
+            <form name="form" role="form" show-validation novalidate ng-submit="createPost()">
+                <div class="form-group">
+                    <label class="control-label" for="postName">Blog Post Name</label>
+                    <input type="text" class="form-control" id="postName" name="postName"
+                           placeholder="Your blog name"
+                           ng-model="blogpost.postName" ng-minlength=1 ng-maxlength=50 required
+                    />
+                    <div ng-show="form.postName.$dirty && form.postName.$invalid">
+                        <p class="help-block"
+                           ng-show="form.postName.$error.required">
+                            The Blog Post name is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="postText">Text</label>
+                    <input type="text" class="form-control" id="postText" name="postText"
+                           placeholder="Blog Post text" required
+                           ng-model="blogpost.postText"/>
+                    <div ng-show="form.postText.$dirty && form.postText.$invalid">
+                        <p class="help-block"
+                           ng-show="form.postText.$error.required">
+                            The Blog Post text is required.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

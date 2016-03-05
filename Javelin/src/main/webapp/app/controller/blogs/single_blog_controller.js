@@ -5,8 +5,14 @@ AngularApp.controller('SingleBlogController', [
         $scope.blog = Blog.get({id: $stateParams.blogId});
 
         $scope.posts = BlogPost.getPosts({id:  $stateParams.blogId  });
-console.log($scope.posts);
-        //  console.log($stateParams);
+
+
+$scope.blId = $stateParams.blogId;
+//console.log($stateParams.blogId);
+        $scope.addPost = function(){
+            $state.go('createPost', {id: $stateParams.blogId});
+        }
+         console.log($stateParams);
         //console.log($scope.blog);
        //console.log($scope.blog.blogPosts);
     }]);

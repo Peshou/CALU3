@@ -211,7 +211,19 @@ AngularApp
                 },
                 resolve: {}
 
-            });
+            }).
+            state('createPost',{
+            url:'/createPost/{id}',
+            parent: 'site',
+            data:{authorities: []},
+            views:{
+                'content@':{
+                    templateUrl: 'views/account/create_post.html',
+                    controller: 'CreateBlogPostController'
+                }
+            }
+
+        });
     }]);
 
 

@@ -7,6 +7,7 @@ import com.javelin.repository.UserRepository;
 import com.javelin.security.SecurityUtils;
 import com.javelin.service.BlogPostService;
 import com.javelin.service.BlogService;
+import com.javelin.service.transferObjects.BlogPostTransferObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,10 @@ public class BlogPostController {
             return ResponseEntity.ok(blogPosts);
         }
         return ResponseEntity.noContent().build();
+    }
+    @RequestMapping(value="/posts/new",method= RequestMethod.POST)
+    public BlogPost saveNewBlogPost(@RequestBody BlogPostTransferObject blogPostTransferObject){
+        return blogPostService.create(blogPostTransferObject);
     }
 
     @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
