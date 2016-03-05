@@ -5,6 +5,9 @@ import java.util.List;
 import com.javelin.security.AuthoritiesConstants;
 import com.javelin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -31,9 +34,15 @@ public class BlogController {
     UserService userService;
 
     @RequestMapping(value = "/blogs/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Blog> getAllBlogs() {
+    public List<Blog> getAllBlogs(@RequestParam(value = "page", required = false) Integer page,
+                                  @RequestParam(value = "size", required = false) Integer size) {
+        if (page != null && size != null) {
+            Pageable pageable = new PageRequest(page, size);
+            return blogService.findAll(pageable).getContent();
+        }
         return blogService.findAll();
     }
+
 
     @RequestMapping(value = "/blogs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Blog> getAllBlogsFromUserLoggedIn() {

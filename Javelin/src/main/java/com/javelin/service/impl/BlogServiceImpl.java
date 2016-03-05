@@ -8,6 +8,8 @@ import com.javelin.model.User;
 import com.javelin.repository.UserRepository;
 import com.javelin.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.javelin.model.Blog;
@@ -51,6 +53,11 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<Blog> findByUserUsername() {
         return blogRepository.findByUserUsername(SecurityUtils.getCurrentUser().getUsername());
+    }
+
+    @Override
+    public Page<Blog> findAll(Pageable pageable) {
+        return blogRepository.findAll(pageable);
     }
 
 

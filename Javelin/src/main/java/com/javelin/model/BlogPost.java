@@ -1,6 +1,8 @@
 package com.javelin.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -35,7 +37,8 @@ public class BlogPost  implements Serializable, Comparable<BlogPost> {
 	@Column(nullable = false,length = 4000)
 	private String text;
 
-	@OneToMany(mappedBy = "blogPostId",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "blogPostId")
+    @LazyCollection(LazyCollectionOption.FALSE)
 	private List<Comment> comments;
 
 
