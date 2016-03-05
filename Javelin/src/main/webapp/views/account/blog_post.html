@@ -12,17 +12,24 @@
                     <button type="submit" class="btn btn-success" ng-click="savePost()">Save Post</button>
                     <button type="submit" class="btn btn-warning" ng-click="cancelEditPostMode()">Cancel</button>
                 </form>
-                <div ng-repeat="comment in post.comments">
-                    <h5>{{comment.commentId}}</h5>
-                    <p>{{comment.commentText}}</p>
-                    <p>{{comment.commentDate | date: 'dd-MM-yyyy HH:mm'}}</p>
-                    <p>{{comment.userId.id}}</p>
-                </div>
+
             </div>
             <div ng-hide="editMode">
                     <h2 align="center">{{post.name}}</h2>
                     <p class="blog-text-settings">{{post.text}}</p>
                     <p class="blog-text-date-settings">Created on: {{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</p>
+            </div>
+            <h2 class="page-header">Comments</h2>
+            <div ng-repeat="comment in post.comments">
+                <div class="media">
+                    <div class="media-left">
+                        <img data-ng-src="data:image/PNG;base64,{{comment.userId.userImage}}" class="media-object">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{comment.userId.username}}<span>{{comment.commentDate | date: 'dd-MM-yyyy HH:mm'}}</span></h4>
+                        <p>{{comment.commentText}}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

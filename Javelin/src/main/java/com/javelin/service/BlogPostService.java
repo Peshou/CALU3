@@ -2,6 +2,7 @@ package com.javelin.service;
 
 import com.javelin.model.BlogPost;
 import com.javelin.service.transferObjects.BlogPostTransferObject;
+import com.javelin.service.transferObjects.BlogTransferObject;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public interface BlogPostService {
 
     boolean delete(Long postId);
 
-    void save(BlogPost blogPost);
+    void save(Long id, Long postId, BlogPostTransferObject blogPost);
 
     boolean getAuthor(Long id);
 

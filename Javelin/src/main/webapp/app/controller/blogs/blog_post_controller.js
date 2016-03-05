@@ -19,16 +19,12 @@ AngularApp.controller('BlogPostController', [
             }
         });
         $scope.savePost = function () {
-            //    console.log($stateParams.id);
-            //     console.log($scope.post.id);
             console.log($scope.editPost);
             $scope.blogPost = {
-                id: $scope.editPost.id,
-                name: $scope.editPost.name,
-                timeAdded: $scope.editPost.timeAdded,
-                text: $scope.editPost.text
+                postName: $scope.editPost.name,
+                postText: $scope.editPost.text,
+                blogId: $stateParams.id
             };
-            console.log($scope.blogPost);
             $http({
                 method: 'PUT',
                 url: "api/blogs/" + $stateParams.id + "/posts/" + $stateParams.blogPostId,
@@ -36,17 +32,16 @@ AngularApp.controller('BlogPostController', [
 
             }).then(function (response) {
                 $scope.editMode = false;
+                $scope.editPost.name=$scope.blogPost.postName;
+                $scope.editPost.text= $scope.blogPost.postText;
+                $scope.post.name=$scope.blogPost.postName;
+                $scope.post.text= $scope.blogPost.postText;
             });
-            //  BlogPost.update({id: $stateParams.id, postId: $scope.post.id}, $scope.blogPost, function (response) {
-            //       $scope.editMode = false;
-            // });
-
         };
-
 
         console.log($scope.postMaker);
         $scope.post = BlogPost.get({id: $stateParams.id, postId: $stateParams.blogPostId}, function (response) {
-
+console.log($scope.post);
             $scope.editPost = copyPost(response);
             console.log($scope.editPost);
         });
