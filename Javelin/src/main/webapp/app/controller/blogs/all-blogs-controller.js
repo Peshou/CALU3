@@ -10,6 +10,7 @@ AngularApp.controller('AllBlogController', [
       //  console.log($stateParams.searchInput);
         if ($state.params.searchInput != null) {
             $scope.resultBlogs = SearchService.getSearch($state.params.searchInput);
+            $scope.searched=true;
         //    console.log($scope.resultBlogs);
         }
 

@@ -7,8 +7,9 @@ AngularApp.controller('BlogController', [
         });
         $scope.blog = {};
         $scope.createBlog = function () {
-            Blog.save({blogName: $scope.blog.blogName, blogDescription: $scope.blog.blogDescription});
-            $scope.blogs = Blog.query();
+            Blog.save({blogName: $scope.blog.blogName, blogDescription: $scope.blog.blogDescription},function(){
+                $scope.blogs = Blog.query();
+            });
         };
 
         $scope.blogs = Blog.query();
