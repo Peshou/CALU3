@@ -4,7 +4,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 public class BlogTransferObject {
-//    Long id;
     @NotNull
     private String blogName;
     @NotNull
@@ -26,8 +25,7 @@ public class BlogTransferObject {
         this.blogName = blogName;
     }
 
-    public BlogTransferObject(Long id, String blogName, String blogDescription) {
-      //  this.id = id;
+    public BlogTransferObject(String blogName, String blogDescription) {
         this.blogName = blogName;
         this.blogDescription = blogDescription;
     }

@@ -78,8 +78,8 @@ public class BlogPostController {
 
     @RequestMapping(value = "/{id}/posts/{postId}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateBlogPostFromBlog(@PathVariable Long id, @PathVariable Long postId,
-                                                    @RequestBody @Valid BlogPost blogPost) {
-        blogPostService.save(blogPost);
+                                                    @RequestBody  BlogPostTransferObject blogPost) {
+        blogPostService.save(id,postId,blogPost);
         return ResponseEntity.ok().build();
     }
 }

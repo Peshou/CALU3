@@ -21,6 +21,7 @@ public class BlogPostTransferObject {
         this.blogId = blogId;
     }
 
+
     public String getPostName() {
         return postName;
     }

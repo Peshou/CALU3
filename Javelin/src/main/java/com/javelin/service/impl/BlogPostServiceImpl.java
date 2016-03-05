@@ -9,6 +9,7 @@ import com.javelin.repository.UserRepository;
 import com.javelin.security.SecurityUtils;
 import com.javelin.service.BlogPostService;
 import com.javelin.service.transferObjects.BlogPostTransferObject;
+import com.javelin.service.transferObjects.BlogTransferObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -70,7 +71,10 @@ public class BlogPostServiceImpl implements BlogPostService {
     }
 
     @Override
-    public void save(BlogPost blogPost) {
+    public void save(Long id, Long postId, BlogPostTransferObject blogPostTransferObject) {
+        BlogPost blogPost = blogPostRepository.findOne(postId);
+        blogPost.setText(blogPostTransferObject.getPostText());
+        blogPost.setName(blogPostTransferObject.getPostName());
         if (blogPost.getTimeAdded() == null) {
             Timestamp timestamp = Timestamp.valueOf(LocalDateTime.now());
             blogPost.setTimeAdded(timestamp);

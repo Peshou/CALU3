@@ -1,5 +1,6 @@
 AngularApp.controller('CreateBlogPostController', [
-    '$scope', 'BlogPost', '$state', 'Principal', '$http', '$stateParams', function ($scope, BlogPost, $state, Principal, $http, $stateParams) {
+    '$scope', 'BlogPost', '$state', 'Principal', '$http', '$stateParams','Blog', function ($scope, BlogPost, $state, Principal, $http, $stateParams,Blog) {
+        $scope.blog = Blog.get({id: $stateParams.id});
 
         $scope.blogpost = {};
         $scope.blogpost.blogId=$stateParams.id
@@ -13,7 +14,5 @@ AngularApp.controller('CreateBlogPostController', [
             }).then(function (response) {
                console.log(response);
             });
-
-
         };
     }]);
