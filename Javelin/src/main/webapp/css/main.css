@@ -209,3 +209,26 @@ body {
     max-width:50%;
 }
 
+.text-about{
+    text-align: justify;
+}
+.blog-name-settings{
+    font-size:35px;
+}
+.blog-desc-settings{
+    color: grey;
+    line-height: 150%;
+    text-align:justify;
+}
+.blog-text-settings{
+    color: darkgrey;
+    line-height: 180%;
+    text-align: justify;
+}
+.blog-text-date-settings{
+    color: seagreen;
+}
+.register-settings{
+    width:480px;
+}
+

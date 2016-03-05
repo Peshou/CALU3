@@ -1,23 +1,35 @@
+
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12">
+    <div class="col-lg-offset-2">
+        <div class="row">
+            <div class="col-sm-12">
                 <div ng-repeat="blog in resultBlogs">
-                    <h2>Name: {{blog.name}}                    </h2>
-                    <h3>Description: {{blog.description}}</h3>
-                    <button class="btn btn-success" ui-sref="blogs.blog({blogId: blog.id})">Open</button>
-                </div>
-        </div>
-    </div>
-    <hr/>
-    <div class="row">
-        <div class="col-sm-12">
-            <div infinite-scroll="apiblogs.nextPage()" infinite-scroll-distance="2">
-                <div ng-repeat="blog in apiblogs.items">
-                    <h2>Name: {{blog.name}}                    </h2>
-                    <h3>Description: {{blog.description}}</h3>
+                    <h2>{{blog.name}}                    </h2>
+                    <h3>{{blog.description}}</h3>
                     <button class="btn btn-success" ui-sref="blogs.blog({blogId: blog.id})">Open</button>
                 </div>
             </div>
         </div>
     </div>
+      <div class="col-lg-offset-2">
+          <div class="row">
+              <div class="col-sm-12">
+                  <div infinite-scroll="apiblogs.nextPage()" infinite-scroll-distance="2">
+                      <div ng-repeat="blog in apiblogs.items">
+                          <h3></h3>
+                          <p class="blog-name-settings">
+                              {{blog.name}}
+                          </p>
+                          <p class="blog-desc-settings">
+                              {{blog.description}}
+                          </p>
+                          <div>
+                              Created by:&nbsp;&nbsp;<span class="section-heading">{{blog.user.username}}</span>&nbsp;&nbsp;<span class="section-heading">{{blog.user.last_name}}</span>
+                          </div>
+                          <button class="btn btn-primary btn-info" ui-sref="blogs.blog({blogId: blog.id})">Open</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
 </div>

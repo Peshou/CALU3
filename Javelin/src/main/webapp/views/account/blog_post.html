@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="pull-right" ng-show="postMaker">
                 <button class="btn btn-danger" ng-click="editPostMode()">Edit Blog Post</button>
             </div>
@@ -8,21 +8,21 @@
                 <form name="form" role="form">
                     <input type="text" class="form-control" ng-model="editPost.name"/>
                     <input type="text" class="form-control" ng-model="editPost.text"/>
-                    <h5>{{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</h5>
+                    <p>{{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</p>
                     <button type="submit" class="btn btn-success" ng-click="savePost()">Save Post</button>
                     <button type="submit" class="btn btn-warning" ng-click="cancelEditPostMode()">Cancel</button>
                 </form>
                 <div ng-repeat="comment in post.comments">
                     <h5>{{comment.commentId}}</h5>
-                    <h5>{{comment.commentText}}</h5>
-                    <h5>{{comment.commentDate | date: 'dd-MM-yyyy HH:mm'}}</h5>
-                    <h5>{{comment.userId.id}}</h5>
+                    <p>{{comment.commentText}}</p>
+                    <p>{{comment.commentDate | date: 'dd-MM-yyyy HH:mm'}}</p>
+                    <p>{{comment.userId.id}}</p>
                 </div>
             </div>
             <div ng-hide="editMode">
-                    <h2>Post name: {{post.name}}</h2>
-                    <h2>{{post.text}}</h2>
-                    <h2>{{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</h2>
+                    <h2 align="center">{{post.name}}</h2>
+                    <p class="blog-text-settings">{{post.text}}</p>
+                    <p class="blog-text-date-settings">Created on: {{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</p>
             </div>
         </div>
     </div>

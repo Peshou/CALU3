@@ -43,10 +43,10 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 ">
-            <h1 class="page-header text-center">{{account.username}}'s Blogs</h1>
+            <h1 class="page-header text-center">{{account.username}}'s blogs</h1>
             <div ng-repeat="blog in blogs">
                 <h3>{{blog.name}}
-                    <button class="btn btn-success" ui-sref="blogs.blog({blogId: blog.id})">Open</button>
+                    <button class="btn btn-info" ui-sref="blogs.blog({blogId: blog.id})">View</button>
                 </h3>
                 <hr/>
             </div>

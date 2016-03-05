@@ -1,17 +1,18 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-sm-12">
-            <h1 class="page-header text-center">Posts in <q>{{blog.name}}</q></h1>
-            <div ng-repeat="post in posts">
-                <h2>Name: {{post.name}}</h2>
-                <h5>Blog text: {{post.text}}</h5>
-                <h5>Date created: {{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</h5>
-                <button class="btn btn-warning" ui-sref="post({id:blog.id,blogPostId: post.id})">Open post</button>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 class="page-header text-center">Posts in <q>{{blog.name}}</q></h1>
+                <div>
+                    <div ng-repeat="post in posts">
+                        <h2>{{post.name}}</h2>
+                        <h5>{{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</h5>
+                        <h5 class="blog-desc-settings">{{post.text}}</h5>
+                        <button class="btn btn-info" ui-sref="post({id:blog.id,blogPostId: post.id})">Open post</button>
 
+                    </div>
+                </div>
             </div>
-
-
         </div>
     </div>
 </div>
