@@ -12,6 +12,7 @@ AngularApp.controller('BlogPostController', [
                     if (response.data == true) {
                         $scope.postMaker = true;
 
+
                     } else {
                         $scope.postMaker = false;
                     }
@@ -19,6 +20,8 @@ AngularApp.controller('BlogPostController', [
             }
         });
         $scope.savePost = function () {
+
+
             console.log($scope.editPost);
             $scope.blogPost = {
                 postName: $scope.editPost.name,
@@ -37,6 +40,21 @@ AngularApp.controller('BlogPostController', [
                 $scope.post.name=$scope.blogPost.postName;
                 $scope.post.text= $scope.blogPost.postText;
             });
+        };
+        $scope.postComment = function(){
+            Principal.identity().then(function (account) {
+                $scope.account = account;
+                $scope.comment.username=$scope.account.username;
+                $scope.comment.blogPostId =$stateParams.blogPostId;
+                $http({
+                    method: 'POST',
+                    url: 'api/comment',
+                    data: $scope.comment
+                }).then(function success(response) {
+                    console.log(response);
+                });
+            });
+
         };
 
         console.log($scope.postMaker);

@@ -26,7 +26,7 @@ public class Comment implements Serializable, Comparable<Comment> {
     private BlogPost blogPostId;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long commentId;
 
     @NotNull
@@ -86,7 +86,6 @@ public class Comment implements Serializable, Comparable<Comment> {
 
         if (!getUserId().equals(comment.getUserId())) return false;
         if (!getBlogPostId().equals(comment.getBlogPostId())) return false;
-        if (!getCommentId().equals(comment.getCommentId())) return false;
         if (getCommentText() != null ? !getCommentText().equals(comment.getCommentText()) : comment.getCommentText() != null)
             return false;
         return getCommentDate() != null ? getCommentDate().equals(comment.getCommentDate()) : comment.getCommentDate() == null;
@@ -96,7 +95,6 @@ public class Comment implements Serializable, Comparable<Comment> {
     public int hashCode() {
         int result = getUserId().hashCode();
         result = 31 * result + getBlogPostId().hashCode();
-        result = 31 * result + getCommentId().hashCode();
         result = 31 * result + (getCommentText() != null ? getCommentText().hashCode() : 0);
         result = 31 * result + (getCommentDate() != null ? getCommentDate().hashCode() : 0);
         return result;
