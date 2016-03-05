@@ -9,15 +9,52 @@
         </div>
     </div>
     <hr/>
-    <div class="row">
-        <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
             <div infinite-scroll="apiblogs.nextPage()" infinite-scroll-distance="2">
                 <div ng-repeat="blog in apiblogs.items">
-                    <h2>Name: {{blog.name}}                    </h2>
-                    <h3>Description: {{blog.description}}</h3>
+                    <!--<h2>Name: {{blog.name}}                    </h2>-->
+                    <!--<h3>Description: {{blog.description}}</h3>-->
+                    <a href="#"> <h2 class="section-heading">Blog1</h2></a>
+                    <p>
+                        Name: {{blog.name}}
+                    </p>
+                    <p>
+                        Description: {{blog.description}}
+                    </p>
                     <button class="btn btn-success" ui-sref="blogs.blog({blogId: blog.id})">Open</button>
                 </div>
             </div>
         </div>
     </div>
+    <!--<article>-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">-->
+                   <!--<a href="#"> <h2 class="section-heading">Blog1</h2></a>-->
+                    <!--<p>-->
+                        <!--Name:-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--Description:-->
+                    <!--</p>-->
+
+                    <!--<a href="#"> <h2 class="section-heading">Blog2</h2></a>-->
+                    <!--<p>-->
+                        <!--Name:-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--Description:-->
+                    <!--</p>-->
+                    <!--<a href="#"> <h2 class="section-heading">Blog3</h2></a>-->
+                    <!--<p>-->
+                        <!--Name:-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--Description:-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</article>-->
 </div>
