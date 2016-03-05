@@ -36,6 +36,8 @@ private BlogPostRepository blogPostRepository;
             Timestamp timestamp = Timestamp.valueOf(LocalDateTime.now());
             com.setCommentDate(timestamp);
         }
+        int nmrComments = commentRepository.findAll().size();
+        com.setCommentId(Integer.toUnsignedLong(nmrComments+1));
         return commentRepository.save(com);
     }
 }

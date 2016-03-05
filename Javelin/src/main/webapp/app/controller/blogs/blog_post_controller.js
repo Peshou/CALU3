@@ -20,8 +20,6 @@ AngularApp.controller('BlogPostController', [
             }
         });
         $scope.savePost = function () {
-
-
             console.log($scope.editPost);
             $scope.blogPost = {
                 postName: $scope.editPost.name,
@@ -51,15 +49,16 @@ AngularApp.controller('BlogPostController', [
                     url: 'api/comment',
                     data: $scope.comment
                 }).then(function success(response) {
-                    console.log(response);
+                    $scope.post = BlogPost.get({id: $stateParams.id, postId: $stateParams.blogPostId}, function (response) {
+                        $scope.editPost = copyPost(response);
+                        console.log($scope.editPost);
+                    });
                 });
             });
 
         };
 
-        console.log($scope.postMaker);
         $scope.post = BlogPost.get({id: $stateParams.id, postId: $stateParams.blogPostId}, function (response) {
-console.log($scope.post);
             $scope.editPost = copyPost(response);
             console.log($scope.editPost);
         });
