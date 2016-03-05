@@ -76,4 +76,18 @@ public class BlogPostServiceImpl implements BlogPostService {
         }
         blogPostRepository.save(blogPost);
     }
+
+    @Override
+    public boolean getAuthor(Long id) {
+        if (SecurityUtils.isAuthenticated()) {
+            User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
+            Blog blog = blogRepository.findOne(id);
+            if (user.equals(blog.getUser())) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
 }

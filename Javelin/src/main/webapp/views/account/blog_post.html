@@ -22,7 +22,7 @@
             <div ng-hide="editMode">
                     <h2>Post name: {{post.name}}</h2>
                     <h2>{{post.text}}</h2>
-                    <h2>{{post.timeAdded}}</h2>
+                    <h2>{{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</h2>
             </div>
         </div>
     </div>

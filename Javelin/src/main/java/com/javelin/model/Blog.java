@@ -33,7 +33,6 @@ public class Blog  implements Serializable {
 	@Column(length = 4000)
 	private String description;
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
