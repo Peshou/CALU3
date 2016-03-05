@@ -38,11 +38,12 @@
                         <img data-ng-src="data:image/PNG;base64,{{comment.userId.userImage}}" class="media-object">
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading">{{comment.userId.username}}<span>{{comment.commentDate | date: 'dd-MM-yyyy HH:mm'}}</span>
+                        <h4 class="media-heading">{{comment.userId.username}}<span> - {{comment.commentDate | date: 'dd-MM-yyyy HH:mm'}}</span>
                         </h4>
                         <p>{{comment.commentText}}</p>
                     </div>
                 </div>
+                <hr/>
             </div>
         </div>
     </div>

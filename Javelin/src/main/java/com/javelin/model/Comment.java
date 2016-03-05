@@ -26,7 +26,6 @@ public class Comment implements Serializable, Comparable<Comment> {
     private BlogPost blogPostId;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long commentId;
 
     @NotNull
