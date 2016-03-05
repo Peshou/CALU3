@@ -7,7 +7,7 @@
                     <div ng-repeat="post in posts">
                         <h2>{{post.name}}</h2>
                         <h5>{{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</h5>
-                        <h5 class="blog-desc-settings">{{post.text}}</h5>
+                        <h5 class="blog-desc-settings">{{post.text | limitTo: 100 : 0}}</h5>
                         <button class="btn btn-info" ui-sref="post({id:blog.id,blogPostId: post.id})">Open post</button>
 
                     </div>
