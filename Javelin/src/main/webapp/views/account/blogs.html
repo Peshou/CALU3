@@ -8,49 +8,26 @@
                         <label class="control-label" for="blogName">Blog Name</label>
                         <input type="text" class="form-control" id="blogName" name="blogName"
                                placeholder="Your blog name"
-                               ng-model="settingsAccount.blogName" ng-minlength=1 ng-maxlength=50 required
-                               maxlength="50">
+                               ng-model="blog.blogName" ng-minlength=1 ng-maxlength=50 required
+                             />
                         <div ng-show="form.blogName.$dirty && form.blogName.$invalid">
                             <p class="help-block"
                                ng-show="form.blogName.$error.required">
                                 The Blog name is required.
                             </p>
-                            <p class="help-block"
-                               ng-show="form.firstName.$error.minlength">
-                                Your first name is required to be at least 1 character.
-                            </p>
-                            <p class="help-block"
-                               ng-show="form.firstName.$error.maxlength">
-                                Your first name cannot be longer than 50 characters.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <label class="control-label" for="lastName">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName"
-                               placeholder="Your last name"
-                               ng-model="settingsAccount.lastName" ng-minlength=1 ng-maxlength=50 required
-                               maxlength="50">
-                        <div ng-show="form.lastName.$dirty && form.lastName.$invalid">
-                            <p class="help-block"
-                               ng-show="form.lastName.$error.required">
-                                Your last name is required.
-                            </p>
-                            <p class="help-block"
-                               ng-show="form.lastName.$error.minlength">
-                                Your last name is required to be at least 1 character.
-                            </p>
-                            <p class="help-block"
-                               ng-show="form.lastName.$error.maxlength">
-                                Your last name cannot be longer than 50 characters.
-                            </p>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="description">E-mail</label>
-                        <input type="text" class="form-control" id="description" name="description"
-                               placeholder="Blog description"
-                               ng-model="settingsAccount.description">
+                        <label class="control-label" for="blogDescription">Description</label>
+                        <input type="text" class="form-control" id="blogDescription" name="description"
+                               placeholder="Blog description" required
+                               ng-model="blog.blogDescription"/>
+                        <div ng-show="form.blogDescription.$dirty && form.blogDescription.$invalid">
+                            <p class="help-block"
+                               ng-show="form.blogDescription.$error.required">
+                                The Blog Description is required.
+                            </p>
+                        </div>
                     </div>
 
                     <div class="text-center">

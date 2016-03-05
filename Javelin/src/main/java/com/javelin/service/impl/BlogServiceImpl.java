@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import com.javelin.model.User;
 import com.javelin.repository.UserRepository;
 import com.javelin.security.SecurityUtils;
+import com.javelin.service.transferObjects.BlogTransferObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,12 +43,13 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public Blog save(Blog blog) {
-        if (blog.getUser() == null) {
+    public Blog save(BlogTransferObject blogTransferObject) {
+        Blog blog = new Blog();
+        blog.setName(blogTransferObject.getBlogName());
+        blog.setDescription(blogTransferObject.getBlogDescription());
             User user = userRepository.findOneByUsername(SecurityUtils.getCurrentUser().getUsername());
             blog.setUser(user);
-        }
-        return blogRepository.save(blog);
+            return blogRepository.save(blog);
     }
 
     @Override
@@ -58,6 +60,11 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Page<Blog> findAll(Pageable pageable) {
         return blogRepository.findAll(pageable);
+    }
+
+    @Override
+    public void update(Blog blog) {
+        blogRepository.save(blog);
     }
 
 

@@ -2,16 +2,14 @@ package com.javelin.web;
 
 import java.util.List;
 
-import com.javelin.security.AuthoritiesConstants;
 import com.javelin.service.UserService;
+import com.javelin.service.transferObjects.BlogTransferObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import com.javelin.model.Blog;
@@ -61,15 +59,15 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/blogs/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<?> deleteBlogById(@PathVariable Long id, @Valid Blog blog) {
-        blogService.save(blog);
+    public ResponseEntity<?> updateBlogById(@PathVariable Long id, @Valid Blog blog) {
+        blogService.update(blog);
         return ResponseEntity.ok().build();
     }
 
     @RequestMapping(value = "/blogs", method = RequestMethod.POST)
-    @Secured({AuthoritiesConstants.USER})
-    public ResponseEntity<?> saveNewBlog(@RequestParam @Valid Blog blog) {
-        blog = blogService.save(blog);
+    public ResponseEntity<?> saveNewBlog(@RequestBody BlogTransferObject blogTransferObject) {
+
+       Blog blogz = blogService.save(blogTransferObject);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

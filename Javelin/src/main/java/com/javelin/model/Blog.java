@@ -24,12 +24,12 @@ public class Blog  implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Field(store = Store.NO)
+	@Field
 	@NotNull
 	@Column(nullable = false)
 	private String name;
 
-	@Field(store = Store.NO)
+	@Field
 	@Column(length = 4000)
 	private String description;
 
@@ -39,7 +39,7 @@ public class Blog  implements Serializable {
 	
 
 	@OneToMany(mappedBy = "blog")
-	@LazyCollection(LazyCollectionOption.FALSE)
+	//@LazyCollection(LazyCollectionOption.FALSE)
 	private List<BlogPost> blogPosts;
 
 	public Blog() {
@@ -48,8 +48,6 @@ public class Blog  implements Serializable {
 	public Blog(String name, String description, User user, List<BlogPost> blogPosts) {
 		this.name = name;
 		this.description = description;
-		this.user = user;
-		this.blogPosts = blogPosts;
 	}
 
 	@Override
@@ -57,10 +55,7 @@ public class Blog  implements Serializable {
 		return "Blog{" +
 				"id=" + id +
 				", name='" + name + '\'' +
-				", description='" + description + '\'' +
-				", user=" + user +
-				", blogPosts=" + blogPosts +
-				'}';
+				", description='" + description + '\'' + '}';
 	}
 
 	@Override
@@ -74,16 +69,14 @@ public class Blog  implements Serializable {
 		if (!getName().equals(blog.getName())) return false;
 		if (getDescription() != null ? !getDescription().equals(blog.getDescription()) : blog.getDescription() != null)
 			return false;
-		return getUser().equals(blog.getUser());
 
+		return true;
 	}
 
 	@Override
 	public int hashCode() {
-		int result = getId().hashCode();
-		result = 31 * result + getName().hashCode();
-		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
-		result = 31 * result + getUser().hashCode();
+		int result = name.hashCode();
+		result = 31 * result + description.hashCode();
 		return result;
 	}
 
@@ -126,4 +119,5 @@ public class Blog  implements Serializable {
 	public void setBlogPosts(List<BlogPost> blogPosts) {
 		this.blogPosts = blogPosts;
 	}
+
 }

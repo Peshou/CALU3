@@ -11,8 +11,7 @@ AngularApp.controller('LoginController', [
             event.preventDefault();
             Auth.login({
                 username: $scope.username,
-                password: $scope.password,
-                rememberMe: $scope.rememberMe
+                password: $scope.password
             }).then(function () {
                 $scope.authenticationError = false;
                 if ($rootScope.previousStateName === 'register') {
