@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
@@ -37,7 +39,8 @@ public class Blog  implements Serializable {
 	private User user;
 	
 
-	@OneToMany(mappedBy = "blog",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "blog")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<BlogPost> blogPosts;
 
 	public Blog() {

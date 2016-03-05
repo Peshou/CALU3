@@ -2,15 +2,12 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <h1 class="page-header"> {{blog.name}} </h1>
+            <h1 class="page-header text-center">Posts in <q>{{blog.name}}</q></h1>
             <div ng-repeat="post in posts">
-                <h2>{{post.id}}</h2>
-               <h5>{{post.name}}</h5>
-                <h5>{{post.text}}</h5>
-                <h5>{{post.name}}</h5>
-                <h5>{{post.text}}</h5>
-                <h5>{{post.timeAdded}}</h5>
-                <button class="btn btn-warning" ui-sref="post({id:blog.id,blogPostId: post.id})">Click me lolz</button>
+                <h2>Name: {{post.name}}</h2>
+                <h5>Blog text: {{post.text}}</h5>
+                <h5>Date created: {{post.timeAdded | date: 'dd-MM-yyyy HH:mm'}}</h5>
+                <button class="btn btn-warning" ui-sref="post({id:blog.id,blogPostId: post.id})">Open post</button>
 
             </div>
 

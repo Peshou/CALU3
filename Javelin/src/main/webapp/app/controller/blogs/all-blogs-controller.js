@@ -1,23 +1,28 @@
 AngularApp.controller('AllBlogController', [
-    '$scope', 'Blog', '$state', '$stateParams', 'Principal', '$http', 'SearchService', function ($scope, Blog, $state, $stateParams, Principal, $http, SearchService) {
+    '$scope', 'Blog', '$state', '$stateParams', 'Principal', '$http', 'SearchService', 'ApiBlogs', function ($scope, Blog, $state, $stateParams, Principal, $http, SearchService, ApiBlogs) {
         Principal.identity().then(function (account) {
             $scope.account = account;
             $scope.isAuthenticated = Principal.isAuthenticated;
+            $scope.$state = $state;
         });
-        console.log($stateParams);
-        if ($stateParams.searchInput === undefined) {
-            $http({
-                method: 'GET',
-                url: 'api/blogs/all'
-            }).then(function success(response) {
-          //      console.log(response);
-                $scope.blogs = response.data;
-            });
-        } else {
-            $scope.blogs = SearchService.getSearch($stateParams.searchInput);
-            $scope.searchInput = null;
-            console.log("went inside");
+
+     //   console.log($state.params);
+      //  console.log($stateParams.searchInput);
+        if ($state.params.searchInput != null) {
+            $scope.resultBlogs = SearchService.getSearch($state.params.searchInput);
+        //    console.log($scope.resultBlogs);
         }
+
+
+        $http({
+            method: 'GET',
+            url: 'api/blogs/all'
+        }).then(function success(response) {
+            $scope.blogs = response.data;
+        });
+        $scope.apiblogs = new ApiBlogs();
+     //   console.log($scope.apiblogs);
+
     }]);
 
 

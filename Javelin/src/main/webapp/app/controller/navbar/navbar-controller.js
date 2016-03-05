@@ -6,22 +6,24 @@ AngularApp.controller('NavbarController',
         'Principal',
         function ($scope, $location, $state, Auth, Principal) {
             $scope.isAuthenticated = Principal.isAuthenticated;
-          //  console.log($scope.isAuthenticated());
             $scope.$state = $state;
-
+            $scope.searchInput = null;
             $scope.logout = function () {
                 Auth.logout();
-                $state.go('home');
+                $scope.$state.go('home');
             };
             $scope.search = function (text) {
-                if (text !== undefined && text.trim().length > 0) {
-                    $state.go("allBlogs", ({searchInput: $scope.searchText}));
+                if (text != undefined) {
+                    if ($scope.$state.current.name == 'allBlogs') {
+                        $state.transitionTo('allBlogs', {searchInput: $scope.searchText}, {reload: true, notify: true});
+                    } else {
+                        $state.go('allBlogs', {searchInput: $scope.searchText});
+                    }
                 }
             };
 
 
             $scope.visible = function () {
-                if($state.current != 'home'){
                 $('#liAdmin').removeClass('hidden');
                 Principal.hasAuthority("ROLE_ADMIN")
                     .then(function (result) {
@@ -31,7 +33,6 @@ AngularApp.controller('NavbarController',
                             $('#liAdmin').addClass('hidden');
                         }
                     });
-                }
             };
 
             $scope.$watch(function () {

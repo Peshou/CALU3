@@ -161,10 +161,15 @@ AngularApp
                     authorities: [],
                     pageTitle: 'All Blogs'
                 },
+                params:{
+                    searchInput: null,
+                },
                 views:{
                     'content@':{
                         templateUrl: 'views/account/allBlogs.html',
-                        controller: 'AllBlogController'
+                        controller: 'AllBlogController',
+                        reloadOnSearch: false
+
                     }
                 }
         })
