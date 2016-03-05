@@ -17,7 +17,10 @@
                     </div>
                     <button class="btn btn-default" ng-click="search(searchText)">Search!</button>
                 </form>
-                <li ui-sref-active="active"><a ui-sref="allBlogs">All Blogs</a></li>
+                <li ui-sref-active="active"><a ui-sref="allBlogs">
+                    <span class="glyphicon glyphicon-bookmark"></span>
+                     <span class="hidden-sm">All Blogs</span>
+                </a></li>
 
                 <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" id="account-menu">
@@ -57,7 +60,11 @@
                             &#xA0;<span>User management</span></a></li>
                     </ul>
                 </li>
-                <li ui-sref-active="active"><a ui-sref="about">About</a></li></li>
+                <li ui-sref-active="active"><a ui-sref="about">
+                    <span class="glyphicon glyphicon-font"></span>
+                    <span class="hidden-sm">About</span>
+
+                </a></li></li>
             </ul>
         </div>
     </div>
