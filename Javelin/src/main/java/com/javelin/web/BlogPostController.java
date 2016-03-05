@@ -1,7 +1,12 @@
 package com.javelin.web;
 
+import com.javelin.model.Blog;
 import com.javelin.model.BlogPost;
+import com.javelin.model.User;
+import com.javelin.repository.UserRepository;
+import com.javelin.security.SecurityUtils;
 import com.javelin.service.BlogPostService;
+import com.javelin.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -11,12 +16,15 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/blogs",produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/blogs", produces = MediaType.APPLICATION_JSON_VALUE)
 public class BlogPostController {
 
     @Autowired
     BlogPostService blogPostService;
-
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    BlogService blogService;
 
     @RequestMapping(value = "/posts/all", method = RequestMethod.GET)
     public ResponseEntity<?> getAllBlogPosts() {
@@ -42,6 +50,16 @@ public class BlogPostController {
         return ResponseEntity.ok(blogPost);
     }
 
+    @RequestMapping(value = "/{id}/posts/{postId}/me", method = RequestMethod.GET)
+    public ResponseEntity<?> isUserAuthor(@PathVariable Long id, @PathVariable Long postId) {
+        BlogPost blogPost = blogPostService.find(id, postId);
+        boolean userAuthor = blogPostService.getAuthor(id);
+        if(userAuthor){
+            return ResponseEntity.ok(true);
+        }
+        return ResponseEntity.ok(false);
+    }
+
     @RequestMapping(value = "/{id}/posts/{postId}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteBlogPostFromBlog(@PathVariable Long id, @PathVariable Long postId) {
         BlogPost blogPost = blogPostService.find(id, postId);
@@ -54,7 +72,8 @@ public class BlogPostController {
     }
 
     @RequestMapping(value = "/{id}/posts/{postId}", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateBlogPostFromBlog(@PathVariable Long id, @PathVariable Long postId,@Valid  BlogPost blogPost) {
+    public ResponseEntity<?> updateBlogPostFromBlog(@PathVariable Long id, @PathVariable Long postId,
+                                                    @RequestBody @Valid BlogPost blogPost) {
         blogPostService.save(blogPost);
         return ResponseEntity.ok().build();
     }

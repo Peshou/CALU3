@@ -16,4 +16,6 @@ public interface BlogPostService {
     boolean delete(Long postId);
 
     void save(BlogPost blogPost);
+
+    boolean getAuthor(Long id);
 }

@@ -21,7 +21,7 @@ AngularApp.controller('AllBlogController', [
             $scope.blogs = response.data;
         });
         $scope.apiblogs = new ApiBlogs();
-     //   console.log($scope.apiblogs);
+       //onsole.log($scope.apiblogs.items[i.user.username);
 
     }]);
 

@@ -2,7 +2,7 @@ AngularApp.factory('ApiBlogs', ['$http', function ($http) {
     var Apiblogs = function () {
         this.items = [];
         this.page = 0;
-        this.size = 4;
+        this.size = 5;
         this.busy = false;
     };
     Apiblogs.prototype.nextPage = function () {
