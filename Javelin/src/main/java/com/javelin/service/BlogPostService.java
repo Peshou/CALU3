@@ -1,6 +1,8 @@
 package com.javelin.service;
 
 import com.javelin.model.BlogPost;
+import com.javelin.service.transferObjects.BlogPostTransferObject;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -18,4 +20,6 @@ public interface BlogPostService {
     void save(BlogPost blogPost);
 
     boolean getAuthor(Long id);
+
+    BlogPost create(BlogPostTransferObject blogPostTransferObject);
 }

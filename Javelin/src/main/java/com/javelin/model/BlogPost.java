@@ -113,25 +113,26 @@ public class BlogPost  implements Serializable, Comparable<BlogPost> {
                 '}';
     }
 
-    @Override
+	@Override
 	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
 		BlogPost blogPost = (BlogPost) o;
 
-		if (id != null ? !id.equals(blogPost.id) : blogPost.id != null)
-			return false;
-		return name != null ? name.equals(blogPost.name) : blogPost.name == null;
+		if (!name.equals(blogPost.name)) return false;
+		if (!blog.equals(blogPost.blog)) return false;
+		if (timeAdded != null ? !timeAdded.equals(blogPost.timeAdded) : blogPost.timeAdded != null) return false;
+		return text.equals(blogPost.text);
 
 	}
 
 	@Override
 	public int hashCode() {
-		int result = id != null ? id.hashCode() : 0;
-		result = 31 * result + (name != null ? name.hashCode() : 0);
+		int result = name.hashCode();
+		result = 31 * result + blog.hashCode();
+		result = 31 * result + (timeAdded != null ? timeAdded.hashCode() : 0);
+		result = 31 * result + text.hashCode();
 		return result;
 	}
 
