@@ -211,6 +211,7 @@ body {
 
 .text-about{
     text-align: justify;
+    font-size:38px;
 }
 .blog-name-settings{
     font-size:35px;
@@ -230,5 +231,8 @@ body {
 }
 .register-settings{
     width:480px;
+}
+.img-about{
+    align-content: center;
 }
 
